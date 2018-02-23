@@ -173,6 +173,17 @@ public class PushAgentBasic : Agent
 					//If it chooses .42 then it will go a little bit right
 					//If it chooses -.8 then it will go left (well...80% left)
 			
+			if(act[0] != 0)
+			{
+				float energyConservationPentalty = Mathf.Abs(act[0])/1000;
+				reward -= energyConservationPentalty;
+			}
+			if(act[1] != 0)
+			{
+				float energyConservationPentalty = Mathf.Abs(act[1])/1000;
+				reward -= energyConservationPentalty;
+			}
+			
 			Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -1f, 1f);  //go left or right in world space
             Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -1f, 1f); //go forward or back in world space
         	Vector3 dirToGo = directionX + directionZ; 
@@ -219,7 +230,7 @@ public class PushAgentBasic : Agent
 	{
 
         MoveAgent(act); //perform agent actions
-		reward -= .001f; // don't waste time
+		// reward -= .001f; // don't waste time
 		bool fail = false;  // did the agent or block get pushed off the edge?
 
 		// if (!Physics.Raycast(agentRB.position, Vector3.down, 3, groundLayer)) //if the agent has gone over the edge, we done.
