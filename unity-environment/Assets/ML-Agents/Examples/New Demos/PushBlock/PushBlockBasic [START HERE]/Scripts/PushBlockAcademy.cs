@@ -21,13 +21,13 @@ public class PushBlockAcademy : Academy {
 	{
 		Physics.gravity *= gravityMultiplier; //so things are less floaty.
 
-	}
-	public override void AcademyReset()
-	{
-	}
+	// }
+	// public override void AcademyReset()
+	// {
+	// }
 
-	public override void AcademyStep()
-	{
-	}
+	// public override void AcademyStep()
+	// {
+	// }
 
 }

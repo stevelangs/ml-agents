@@ -11,6 +11,9 @@ TagManager:
   - badBanana
   - pit
   - frozenAgent
+  - goal
+  - walkableSurface
+  - obstacle
   layers:
   - Default
   - TransparentFX

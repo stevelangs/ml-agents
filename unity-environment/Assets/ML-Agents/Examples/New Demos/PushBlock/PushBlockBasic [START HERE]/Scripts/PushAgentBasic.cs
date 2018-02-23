@@ -15,6 +15,7 @@ public class PushAgentBasic : Agent
 
 	public GameObject goal; //goal to push the block to
     public GameObject block; //the orange block we are going to be pushing
+    public GameObject obstacle; //don't let the block touch the obstacle
 	[HideInInspector]
 	public GoalDetect goalDetect; //this script detects when the block touches the goal
 	// public LayerMask groundLayer; //layer the ground is on. used for raycasts to detect when we've fallen off the edge of the platform. If we fall off we will penalize the agent
@@ -82,17 +83,26 @@ public class PushAgentBasic : Agent
 		Vector3 agentPosRelToGoal = agentRB.position - goal.transform.position; //vector to agent from goal
 		Vector3 blockPosRelToGoal = blockRB.position - goal.transform.position; //vector to blockRB from goal
 		Vector3 blockPosRelToAgent = blockRB.position - agentRB.position; //vector to blockRB from agent
+		Vector3 obstaclePosRelToAgent = obstacle.transform.position - agentRB.position; //vector to blockRB from agent
+		
+		Vector3 agentPos = agentRB.position - ground.transform.position; //vector to blockRB from agent
 		Vector3 goalPos = goal.transform.position - ground.transform.position;  //pos of goal rel to ground
 		Vector3 blockPos = blockRB.transform.position - ground.transform.position;  //pos of goal rel to ground
+		Vector3 obstaclePos = obstacle.transform.position - ground.transform.position;  //pos of goal rel to ground
 		// Vector3 agentPos = agentRB.position - ground.transform.position;  //pos of agent rel to ground
 
 		//COLLECTING 18 STATES
-		// CollectVector3State(state, agentPos);  //pos of agent rel to ground
+		// CollectVector3State(state, agentDir);  //pos of agent rel to ground
+		MLAgentsHelpers.CollectVector3State(state, agentPos);  //pos of goal rel to ground
 		MLAgentsHelpers.CollectVector3State(state, goalPos);  //pos of goal rel to ground
 		MLAgentsHelpers.CollectVector3State(state, blockPos);  //pos of goal rel to ground
+		MLAgentsHelpers.CollectVector3State(state, obstaclePos);  //pos of goal rel to ground
+
 		MLAgentsHelpers.CollectVector3State(state, agentPosRelToGoal);  //vector to agent from goal
 		MLAgentsHelpers.CollectVector3State(state, blockPosRelToGoal); //vector to blockRB from goal
 		MLAgentsHelpers.CollectVector3State(state, blockPosRelToAgent);  //vector to blockRB from agent
+		MLAgentsHelpers.CollectVector3State(state, obstaclePosRelToAgent);  //vector to blockRB from agent
+
 		MLAgentsHelpers.CollectVector3State(state, blockRB.velocity); //block's vel
 		MLAgentsHelpers.CollectVector3State(state, agentRB.velocity); //agent's vel
 		MLAgentsHelpers.CollectRotationState(state, agentRB.transform); //agent's rotation
@@ -108,24 +118,25 @@ public class PushAgentBasic : Agent
 
 
 	//use the ground's bounds to pick a random spawn pos
-    public Vector3 GetRandomGoalPos()
-    {
-        Vector3 randomGoalPos = Vector3.zero;
-        float randomPosX = Random.Range(-areaBounds.extents.x * academy.spawnAreaMarginMultiplier, areaBounds.extents.x * academy.spawnAreaMarginMultiplier);
-        float randomPosZ = Random.Range(-areaBounds.extents.z * academy.spawnAreaMarginMultiplier, areaBounds.extents.z * academy.spawnAreaMarginMultiplier);
-        // float randomPosX = Random.Range(-areaBounds.extents.x, areaBounds.extents.x);
-        // float randomPosZ = Random.Range(-areaBounds.extents.z, areaBounds.extents.z);
-        randomGoalPos = ground.transform.position + new Vector3(randomPosX, goalStartingPos.y - ground.transform.position.y, randomPosZ ); //kind of a dumb way to do this. fix it later.
-        return randomGoalPos;
-    }
+    // public Vector3 GetRandomGoalPos()
+    // {
+    //     Vector3 randomGoalPos = Vector3.zero;
+    //     float randomPosX = Random.Range(-areaBounds.extents.x * academy.spawnAreaMarginMultiplier, areaBounds.extents.x * academy.spawnAreaMarginMultiplier);
+    //     float randomPosZ = Random.Range(-areaBounds.extents.z * academy.spawnAreaMarginMultiplier, areaBounds.extents.z * academy.spawnAreaMarginMultiplier);
+    //     // float randomPosX = Random.Range(-areaBounds.extents.x, areaBounds.extents.x);
+    //     // float randomPosZ = Random.Range(-areaBounds.extents.z, areaBounds.extents.z);
+    //     randomGoalPos = ground.transform.position + new Vector3(randomPosX, .5f, randomPosZ ); //kind of a dumb way to do this. fix it later.
+    //     // randomGoalPos = ground.transform.position + new Vector3(randomPosX, goalStartingPos.y - ground.transform.position.y, randomPosZ ); //kind of a dumb way to do this. fix it later.
+    //     return randomGoalPos;
+    // }
 
 	//use the ground's bounds to pick a random spawn pos
-    public Vector3 GetRandomSpawnPos()
+    public Vector3 GetRandomSpawnPos(float spawnHeight)
     {
         Vector3 randomSpawnPos = Vector3.zero;
         float randomPosX = Random.Range(-areaBounds.extents.x * academy.spawnAreaMarginMultiplier, areaBounds.extents.x * academy.spawnAreaMarginMultiplier);
         float randomPosZ = Random.Range(-areaBounds.extents.z * academy.spawnAreaMarginMultiplier, areaBounds.extents.z * academy.spawnAreaMarginMultiplier);
-        randomSpawnPos = ground.transform.position + new Vector3(randomPosX, 1.5f, randomPosZ );
+        randomSpawnPos = ground.transform.position + new Vector3(randomPosX, spawnHeight, randomPosZ );
         return randomSpawnPos;
     }
 
@@ -135,6 +146,14 @@ public class PushAgentBasic : Agent
 		reward += 1; //you get a point
 		done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
 		StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+
+	}
+
+	public void BlockTouchedObstacle()
+	{
+		reward -= 1; //you get a point
+		done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+		StartCoroutine(GoalScoredSwapGroundMaterial(academy.failMaterial, 2)); //swap ground material for a bit to indicate we scored.
 
 	}
 
@@ -230,7 +249,7 @@ public class PushAgentBasic : Agent
 	{
 
         MoveAgent(act); //perform agent actions
-		// reward -= .001f; // don't waste time
+		reward -= .0005f; // don't waste time
 		bool fail = false;  // did the agent or block get pushed off the edge?
 
 		// if (!Physics.Raycast(agentRB.position, Vector3.down, 3, groundLayer)) //if the agent has gone over the edge, we done.
@@ -238,7 +257,7 @@ public class PushAgentBasic : Agent
 		{
 			fail = true; //fell off bro
 			reward -= 1f; // BAD AGENT
-			transform.position =  GetRandomSpawnPos();
+			transform.position =  GetRandomSpawnPos(1.5f);
 			done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
 		}
 
@@ -260,7 +279,7 @@ public class PushAgentBasic : Agent
 	
 	void ResetBlock()
 	{
-		block.transform.position = GetRandomSpawnPos(); //get a random pos
+		block.transform.position = GetRandomSpawnPos(1.5f); //get a random pos
         blockRB.velocity = Vector3.zero; //reset vel back to zero
         blockRB.angularVelocity = Vector3.zero; //reset angVel back to zero
 	}
@@ -270,7 +289,9 @@ public class PushAgentBasic : Agent
 	public override void AgentReset()
 	{
 		ResetBlock();
-		goal.transform.position = GetRandomGoalPos();
+		goal.transform.position = GetRandomSpawnPos(.35f);
+		obstacle.transform.position = GetRandomSpawnPos(.5f);
+		// goal.transform.position = GetRandomGoalPos();
 	}
 }
 
