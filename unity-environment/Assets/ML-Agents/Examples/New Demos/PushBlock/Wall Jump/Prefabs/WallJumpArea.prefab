@@ -385,7 +385,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613195042186090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 44}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224468267201346426}
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 0}
   observations: []
-  maxStep: 1024
+  maxStep: 10000
   resetOnDone: 1
   state:
   - -0.2992472
@@ -1272,8 +1272,10 @@ MonoBehaviour:
   - -1
   - -0.22871178
   - -1
+  stackedStates: []
   reward: -0.002
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: -0.9049993
   stepCounter: 907
@@ -1310,9 +1312,6 @@ MonoBehaviour:
   groundCheckRadius: 0.48
   groundCheckOffset: {x: 0, y: -0.4, z: 0}
   groundCheckFrequency: 0.1
-  jumpHeight: 2.75
-  jumpVelocity: 777
-  jumpVelocityMaxChange: 10
 --- !u!222 &222081121038245268
 CanvasRenderer:
   m_ObjectHideFlags: 1

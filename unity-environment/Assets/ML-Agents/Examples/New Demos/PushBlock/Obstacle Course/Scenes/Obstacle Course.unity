@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &74376980
 Transform:
   m_ObjectHideFlags: 0
@@ -452,8 +452,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -495,6 +497,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &74376982
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1455,8 +1458,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -1498,6 +1503,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &143880618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1646,8 +1652,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -1689,6 +1697,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &144737123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1926,8 +1935,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -1969,6 +1980,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &161878600
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2224,7 +2236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &180016076
 Transform:
   m_ObjectHideFlags: 0
@@ -2280,8 +2292,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -2323,6 +2337,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &180016078
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2649,8 +2664,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -2692,6 +2709,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &216340262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2794,8 +2812,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brainParameters:
     stateSize: 44
+    stackedStates: 1
     actionSize: 3
-    memorySize: 0
+    memorySize: 256
     cameraResolutions: []
     actionDescriptions:
     - 
@@ -2805,11 +2824,11 @@ MonoBehaviour:
     stateSpaceType: 1
   brainType: 2
   CoreBrains:
-  - {fileID: 1336893866}
-  - {fileID: 2023417902}
-  - {fileID: 913829609}
-  - {fileID: 1265048806}
-  instanceID: 70312
+  - {fileID: 1979010934}
+  - {fileID: 359759930}
+  - {fileID: 255519158}
+  - {fileID: 1048662334}
+  instanceID: 366976
 --- !u!1 &235509680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,7 +2849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &235509681
 Transform:
   m_ObjectHideFlags: 0
@@ -2886,8 +2905,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -2929,6 +2950,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &235509683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3021,7 +3043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &238008517
 Transform:
   m_ObjectHideFlags: 0
@@ -3077,8 +3099,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -3120,6 +3144,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &238008519
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3212,7 +3237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &247974653
 Transform:
   m_ObjectHideFlags: 0
@@ -3268,8 +3293,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -3311,6 +3338,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &247974655
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3403,7 +3431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &252941976
 Transform:
   m_ObjectHideFlags: 0
@@ -3459,8 +3487,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -3502,6 +3532,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &252941978
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3636,6 +3667,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &255519158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 226584073}
 --- !u!1 &263807453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4429,6 +4472,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 338458140}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &359759930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!1 &365376270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,8 +4651,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -4638,6 +4696,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &375749365
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4804,7 +4863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394977295
 Transform:
   m_ObjectHideFlags: 0
@@ -4860,8 +4919,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -4903,6 +4964,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &394977297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5084,7 +5146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400876946
 Transform:
   m_ObjectHideFlags: 0
@@ -5140,8 +5202,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -5183,6 +5247,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &400876948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5716,7 +5781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &433262476
 Transform:
   m_ObjectHideFlags: 0
@@ -5772,8 +5837,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -5815,6 +5882,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &433262478
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5907,7 +5975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &443296716
 Transform:
   m_ObjectHideFlags: 0
@@ -5963,8 +6031,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -6006,6 +6076,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &443296718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6599,8 +6670,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -6642,6 +6715,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &482813113
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7220,7 +7294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &522848321
 Transform:
   m_ObjectHideFlags: 0
@@ -7276,8 +7350,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -7319,6 +7395,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &522848323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7751,8 +7828,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -7794,6 +7873,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &578491652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8028,8 +8108,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -8071,6 +8153,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &589726229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8956,7 +9039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &688371682
 Transform:
   m_ObjectHideFlags: 0
@@ -9012,8 +9095,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -9055,6 +9140,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &688371684
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9763,7 +9849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &794730765
 Transform:
   m_ObjectHideFlags: 0
@@ -9819,8 +9905,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -9862,6 +9950,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &794730767
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9954,7 +10043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &815027427
 Transform:
   m_ObjectHideFlags: 0
@@ -10010,8 +10099,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -10053,6 +10144,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &815027429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10145,7 +10237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &818012812
 Transform:
   m_ObjectHideFlags: 0
@@ -10201,8 +10293,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -10244,6 +10338,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &818012814
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10690,7 +10785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &851471377
 Transform:
   m_ObjectHideFlags: 0
@@ -10746,8 +10841,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -10789,6 +10886,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &851471379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10970,7 +11068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &860170401
 Transform:
   m_ObjectHideFlags: 0
@@ -11026,8 +11124,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -11069,6 +11169,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &860170403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11218,8 +11319,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -11261,6 +11364,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &874087537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11513,8 +11617,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -11556,6 +11662,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &888383774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11648,7 +11755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &906158618
 Transform:
   m_ObjectHideFlags: 0
@@ -11704,8 +11811,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -11747,6 +11856,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &906158620
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11908,18 +12018,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 906510459}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &913829609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 226584073}
 --- !u!1 &921202611
 GameObject:
   m_ObjectHideFlags: 0
@@ -11996,8 +12094,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -12039,6 +12139,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &921202614
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12187,8 +12288,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -12230,6 +12333,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &938479977
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12796,8 +12900,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -12839,6 +12945,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1024700047
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13109,6 +13216,28 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1028172055}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1048662334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 4900000, guid: 8f01685ccb996460fb9654c594bb9454, type: 3}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  StatePlacholderName: state
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  ObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  brain: {fileID: 226584073}
 --- !u!1 &1089304264
 GameObject:
   m_ObjectHideFlags: 0
@@ -13203,7 +13332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1093085198
 Transform:
   m_ObjectHideFlags: 0
@@ -13259,8 +13388,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -13302,6 +13433,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1093085200
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13539,8 +13671,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -13582,6 +13716,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1137637896
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13674,7 +13809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146455041
 Transform:
   m_ObjectHideFlags: 0
@@ -13730,8 +13865,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -13773,6 +13910,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1146455043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13857,8 +13995,10 @@ GameObject:
   - component: {fileID: 1171845333}
   - component: {fileID: 1171845332}
   - component: {fileID: 1171845331}
+  - component: {fileID: 1171845335}
+  - component: {fileID: 1171845334}
   m_Layer: 0
-  m_Name: Ground (3)
+  m_Name: Obstacle
   m_TagString: avoidObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13872,7 +14012,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1171845329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 1.23, z: 0}
+  m_LocalPosition: {x: 18, y: 3.02, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 2001949754}
@@ -13934,6 +14074,138 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1171845329}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1171845334
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171845329}
+  serializedVersion: 2
+  m_Mass: 555
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &1171845335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171845329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79fbd9e946144318281a5da9dd122f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  rotateRB: 0
+  rotationSpeed: {x: 0, y: 170, z: 0}
+  rotationSpeedMultiplierX:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rotationSpeedMultiplierY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rotationSpeedMultiplierZ:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  adjustMaterialFrictionBasedOnRotationSpeed: 0
+  platformPhysicsMaterial: {fileID: 0}
+  oscillate: 1
+  oscillateForce: 0
+  oscillateX: 0
+  oscillateXCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 0
+  oscillateY: 0
+  oscillateYCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 0
+  oscillateZ: 1
+  oscillateZCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: -7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1.4990524
+      value: 7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 0
+  matchRotation: 0
+  matchXRot: 0
+  matchYRot: 0
+  matchZRot: 0
+  maxDegreesDelta: 0
+  matchRotAngVel: 0
+  matchRotationTargetTransform: {fileID: 0}
+  matchPosition: 0
+  matchPositionTargetTransform: {fileID: 0}
+  matchPosForce: 11
+  targetVel: 555
+  maxVel: 11
 --- !u!1 &1200591593
 GameObject:
   m_ObjectHideFlags: 0
@@ -14401,32 +14673,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Settings:
   - {fileID: 1918715015}
---- !u!114 &1265048806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 4900000, guid: 146701a0b0af847d589b707ce3abd509, type: 3}
-  graphScope: 
-  graphPlaceholders:
-  - name: epsilon
-    valueType: 1
-    minValue: -1
-    maxValue: 1
-  BatchSizePlaceholderName: batch_size
-  StatePlacholderName: state
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  ObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  brain: {fileID: 226584073}
 --- !u!1 &1265651285
 GameObject:
   m_ObjectHideFlags: 0
@@ -15227,49 +15473,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317007895}
---- !u!114 &1336893866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 97
-    index: 0
-    value: -1
-  - key: 100
-    index: 0
-    value: 1
-  - key: 119
-    index: 1
-    value: 1
-  - key: 115
-    index: 1
-    value: -1
-  - key: 32
-    index: 2
-    value: 1
-  discretePlayerActions:
-  - key: 97
-    value: 1
-  - key: 100
-    value: 2
-  - key: 119
-    value: 3
-  - key: 115
-    value: 4
-  - key: 107
-    value: 5
-  - key: 108
-    value: 6
-  defaultAction: 0
-  brain: {fileID: 226584073}
 --- !u!1 &1350073293
 GameObject:
   m_ObjectHideFlags: 3
@@ -15355,7 +15558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1353224394
 Transform:
   m_ObjectHideFlags: 0
@@ -15411,8 +15614,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -15454,6 +15659,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1353224396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15788,7 +15994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1374583737
 Transform:
   m_ObjectHideFlags: 0
@@ -15844,8 +16050,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -15887,6 +16095,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1374583739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16347,7 +16556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1405747596
 Transform:
   m_ObjectHideFlags: 0
@@ -16403,8 +16612,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -16446,6 +16657,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1405747598
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16538,7 +16750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1410283360
 Transform:
   m_ObjectHideFlags: 0
@@ -16594,8 +16806,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -16637,6 +16851,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1410283362
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16729,7 +16944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1413350472
 Transform:
   m_ObjectHideFlags: 0
@@ -16785,8 +17000,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -16828,6 +17045,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1413350474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17097,7 +17315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1479750321
 Transform:
   m_ObjectHideFlags: 0
@@ -17153,8 +17371,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -17196,6 +17416,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1479750323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17858,8 +18079,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -17901,6 +18124,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1547031962
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18125,8 +18349,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -18168,6 +18394,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1563799340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18455,7 +18682,7 @@ MonoBehaviour:
     width: 1280
     height: 720
     qualityLevel: 1
-    timeScale: 1
+    timeScale: 5
     targetFrameRate: -1
   inferenceConfiguration:
     width: 1280
@@ -18465,11 +18692,12 @@ MonoBehaviour:
     targetFrameRate: 60
   defaultResetParameters: []
   done: 0
+  maxStepReached: 0
   episodeCount: 1
   currentStep: 0
-  agentRunSpeed: 1
+  agentRunSpeed: 3
   maxAgentSqrMagnitude: 100
-  agentRotationSpeed: 15
+  agentRotationSpeed: 25
   spawnAreaMarginMultiplier: 0.9
   goalScoredMaterial: {fileID: 2100000, guid: b3effc31ad8e442268e6b1f77b06fc4d, type: 2}
   failMaterial: {fileID: 2100000, guid: afec5566ab8f64f288135f321697aff1, type: 2}
@@ -18644,7 +18872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1601256313
 Transform:
   m_ObjectHideFlags: 0
@@ -18700,8 +18928,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -18743,6 +18973,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1601256315
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18914,7 +19145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1621105386
 Transform:
   m_ObjectHideFlags: 0
@@ -18970,8 +19201,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -19013,6 +19246,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1621105388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19372,7 +19606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1666702811
 Transform:
   m_ObjectHideFlags: 0
@@ -19428,8 +19662,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -19471,6 +19707,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1666702813
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19700,7 +19937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1676969761
 Transform:
   m_ObjectHideFlags: 0
@@ -19756,8 +19993,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -19799,6 +20038,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1676969763
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20345,7 +20585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1751156920
 Transform:
   m_ObjectHideFlags: 0
@@ -20401,8 +20641,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -20444,6 +20686,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1751156922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20592,8 +20835,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -20635,6 +20880,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1756059251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21124,8 +21370,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -21167,6 +21415,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1771427449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21488,8 +21737,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -21531,6 +21782,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1827492324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21623,7 +21875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1848587509
 Transform:
   m_ObjectHideFlags: 0
@@ -21679,8 +21931,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -21722,6 +21976,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1848587511
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22004,8 +22259,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -22047,6 +22304,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1864844562
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22228,7 +22486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1900154985
 Transform:
   m_ObjectHideFlags: 0
@@ -22284,8 +22542,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -22327,6 +22587,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1900154987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22691,7 +22952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1925267901
 Transform:
   m_ObjectHideFlags: 0
@@ -22747,8 +23008,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -22790,6 +23053,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1925267903
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22971,7 +23235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1937848192
 Transform:
   m_ObjectHideFlags: 0
@@ -23027,8 +23291,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -23070,6 +23336,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1937848194
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23410,8 +23677,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -23453,6 +23722,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1970436243
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23525,6 +23795,49 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1970436240}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1979010934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 97
+    index: 0
+    value: -1
+  - key: 100
+    index: 0
+    value: 1
+  - key: 119
+    index: 1
+    value: 1
+  - key: 115
+    index: 1
+    value: -1
+  - key: 32
+    index: 2
+    value: 1
+  discretePlayerActions:
+  - key: 97
+    value: 1
+  - key: 100
+    value: 2
+  - key: 119
+    value: 3
+  - key: 115
+    value: 4
+  - key: 107
+    value: 5
+  - key: 108
+    value: 6
+  defaultAction: 0
+  brain: {fileID: 226584073}
 --- !u!1 &1980410128
 GameObject:
   m_ObjectHideFlags: 0
@@ -23763,7 +24076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1987374807
 Transform:
   m_ObjectHideFlags: 0
@@ -23819,8 +24132,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -23862,6 +24177,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &1987374809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24110,7 +24426,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1295802627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -10.52}
+  m_LocalPosition: {x: 1, y: 0, z: -12.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 821029245}
@@ -24216,7 +24532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2023246438
 Transform:
   m_ObjectHideFlags: 0
@@ -24272,8 +24588,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -24315,6 +24633,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &2023246440
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24387,19 +24706,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023246437}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2023417902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1 &2027739252
 GameObject:
   m_ObjectHideFlags: 0
@@ -24936,7 +25242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2061532050
 Transform:
   m_ObjectHideFlags: 0
@@ -24992,8 +25298,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -25035,6 +25343,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &2061532052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25127,7 +25436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2069304846
 Transform:
   m_ObjectHideFlags: 0
@@ -25183,8 +25492,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -25226,6 +25537,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &2069304848
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25708,7 +26020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2111976711
 Transform:
   m_ObjectHideFlags: 0
@@ -25764,8 +26076,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -25807,6 +26121,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &2111976713
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26133,8 +26448,10 @@ MonoBehaviour:
   - 1
   - 2.061553
   - 1
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 1119
@@ -26176,6 +26493,7 @@ MonoBehaviour:
   jumpVelocityMaxChange: 10
   showRaycastRays: 1
   furthestXPos: 0
+  stateArray: []
 --- !u!54 &2130579424
 Rigidbody:
   m_ObjectHideFlags: 0

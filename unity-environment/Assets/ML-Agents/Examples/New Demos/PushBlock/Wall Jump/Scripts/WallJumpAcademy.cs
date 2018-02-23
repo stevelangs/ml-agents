@@ -12,13 +12,17 @@ public class WallJumpAcademy : Academy {
 
 	public float gravityMultiplier; //use ~3 to make things less floaty
 	public float currentWallHeight;
+	public float agentJumpHeight;
+	public float agentJumpVelocity;
+	public float agentJumpVelocityMaxChange;
+	public float agentRaycastDistance;
 	// public float minWallHeight;
     // public float maxWallHeight;
 	public float wallHeight;
 
 	public override void AcademyReset()
 	{
-		wallHeight = 
+		// wallHeight = 
         wallHeight = (float)resetParameters["wall_height"];
         // minWallHeight = (float)resetParameters["min_wall_height"];
         // maxWallHeight = (float)resetParameters["max_wall_height"];

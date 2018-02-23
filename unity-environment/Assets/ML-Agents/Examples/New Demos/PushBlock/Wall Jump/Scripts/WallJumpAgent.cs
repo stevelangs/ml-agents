@@ -41,9 +41,9 @@ public class WallJumpAgent : Agent
 	public float groundCheckFrequency; //perform a groundcheck every x sec. ex: .5 will do a groundcheck every .5 sec.
 	Vector3 jumpTargetPos; //target this position during jump. it will be 
 	Vector3 jumpStartingPos; //target this position during jump. it will be 
-	public float jumpHeight = 1; //how high should we jump?
-	public float jumpVelocity = 500; //higher number will result in a quicker jump
-	public float jumpVelocityMaxChange = 10; // don't let the velocity change more than this every tick. this helps smooth out the motion. lower number == slower/more controlled movement. I typically use 10-20 for this value.
+	// public float jumpHeight = 1; //how high should we jump?
+	// public float jumpVelocity = 500; //higher number will result in a quicker jump
+	// public float jumpVelocityMaxChange = 10; // don't let the velocity change more than this every tick. this helps smooth out the motion. lower number == slower/more controlled movement. I typically use 10-20 for this value.
 	
 	
 	void Awake()
@@ -128,9 +128,9 @@ public class WallJumpAgent : Agent
 				{
 					//build a random position to use for a groundcheck raycast
 					Vector3 randomRaycastPos = agentRB.position;
-					randomRaycastPos += agentRB.transform.forward * Random.Range(-.4f, .4f); // random forward/back
-					randomRaycastPos += agentRB.transform.right * Random.Range(-.4f, .4f); // plus a random left/right
-					if (Physics.Raycast(randomRaycastPos, Vector3.down, .6f)) //if we hit
+					randomRaycastPos += agentRB.transform.forward * Random.Range(-.5f, .5f); // random forward/back
+					randomRaycastPos += agentRB.transform.right * Random.Range(-.5f, .5f); // plus a random left/right
+					if (Physics.Raycast(randomRaycastPos, Vector3.down, .8f)) //if we hit
 					{
 						grounded = true; //then we're grounded
 						break;
@@ -183,24 +183,47 @@ public class WallJumpAgent : Agent
 		MLAgentsHelpers.CollectVector3State(state, agentRB.velocity); //agent's vel
 		MLAgentsHelpers.CollectRotationState(state, agentRB.transform); //agent's rotation
 
-		RaycastHit hit;
-		// float didWeHitSomething = 0; //1 if yes, 0 if no
-		float hitDistance = 5; //how far away was it. if nothing was hit then this will return our max raycast dist (which is 10 right now)
-		float hitObjectHeight = 0;
-		if (Physics.Raycast(agentRB.position, transform.forward, out hit, 5)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("walkableSurface"))
-			{
-				// didWeHitSomething = 1;
-				hitDistance = hit.distance;
-				hitObjectHeight = hit.transform.localScale.y;
-				// print(hit.collider.name + hit.distance);
-			}
-		}
+		state.Add(wall.transform.localScale.y); //wall height
 
-		// state.Add(didWeHitSomething);
-		state.Add(hitDistance);
-		state.Add(hitObjectHeight);
+
+
+		// RaycastHit hit;
+		// // float didWeHitSomething = 0; //1 if yes, 0 if no
+		// // float hitDistance = 5; //how far away was it. if nothing was hit then this will return our max raycast dist (which is 10 right now)
+		// // float hitObjectHeight = 0;
+		// float[] subList = new float[3]; //will initialize with all zeros
+
+		// if (Physics.Raycast(agentRB.position, transform.forward, out hit, academy.agentRaycastDistance)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("walkableSurface"))
+		// 	{
+		// 		// didWeHitSomething = 1;
+		// 		// hitDistance = hit.distance;
+		// 		// hitObjectHeight = hit.transform.localScale.y;
+		// 		subList[0] = 1; //hit
+		// 		// subList[1] = hit.distance; //distance
+		// 		subList[1] = hit.distance / academy.agentRaycastDistance; //distance
+		// 		subList[2] = hit.transform.localScale.y; //height
+		// 		// print(hit.collider.name + hit.distance);
+		// 	}
+		// }
+		// state.AddRange(new List<float>(subList));  //adding n = detectableObjects.Length + 2 items to the state
+		
+		
+		
+		
+		
+		// else
+		// {
+		// 		subList[0] = 0; //hit
+		// 		subList[1] = 0; //distance
+		// 		subList[2] = hit.transform.localScale.y; //height
+
+		// }
+
+		// // state.Add(didWeHitSomething);
+		// state.Add(hitDistance);
+		// state.Add(hitObjectHeight);
 
 		return state;
 	}
@@ -257,22 +280,25 @@ public class WallJumpAgent : Agent
 			float speedZ = 0;
 			if(act[0] != 0)
 			{
-				float energyConservationPentalty = Mathf.Abs(act[0])/1000;
+				// float energyConservationPentalty = Mathf.Abs(act[0])/5000;
+				float energyConservationPentalty = Mathf.Abs(act[0])/10000;
 				speedX = grounded? act[0]: act[0]/2; //if we are in the air, our move speed should be a fraction of normal speed.
 				// print("act[0] = " + act[0]);
-				reward -= energyConservationPentalty;
+				// reward -= energyConservationPentalty;
 				// reward -= .0001f;
 			}
 			if(act[1] != 0)
 			{
-				float energyConservationPentalty = Mathf.Abs(act[1])/1000;
+				float energyConservationPentalty = Mathf.Abs(act[1])/10000;
 				speedZ= grounded? act[1]: act[1]/2; //if we are in the air, our move speed should be a fraction of normal speed.
 				// print("act[1] = " + act[1]);
-				reward -= energyConservationPentalty;
+				// reward -= energyConservationPentalty;
 			}
 			
-			Vector3 directionX = Vector3.right * speedX;  //go left or right in world space
-            Vector3 directionZ = Vector3.forward * speedZ; //go forward or back in world space
+			// Vector3 directionX = Vector3.right * speedX;  //go left or right in world space
+            // Vector3 directionZ = Vector3.forward * speedZ; //go forward or back in world space
+			Vector3 directionX = Vector3.right * Mathf.Clamp(speedX, -1, 1);  //go left or right in world space
+            Vector3 directionZ = Vector3.forward * Mathf.Clamp(speedZ, -1, 1); //go forward or back in world space
         	Vector3 dirToGo = directionX + directionZ; //the dir we want to go
 
 			if(act[2] > 0 && !jumping && grounded)
@@ -307,9 +333,11 @@ public class WallJumpAgent : Agent
 		if(jumping)
 		{
 			// jumpTargetPos = transform.forward
-			jumpTargetPos = new Vector3(agentRB.position.x,  jumpStartingPos.y + jumpHeight, agentRB.position.z) + transform.forward/4; 
+			// jumpTargetPos = new Vector3(agentRB.position.x,  jumpStartingPos.y + jumpHeight, agentRB.position.z) + transform.forward/4; 
+			jumpTargetPos = new Vector3(agentRB.position.x,  jumpStartingPos.y + academy.agentJumpHeight, agentRB.position.z) + transform.forward/4; 
 
-			MoveTowards(jumpTargetPos, agentRB, jumpVelocity, jumpVelocityMaxChange);
+			// MoveTowards(jumpTargetPos, agentRB, jumpVelocity, jumpVelocityMaxChange);
+			MoveTowards(jumpTargetPos, agentRB, academy.agentJumpVelocity, academy.agentJumpVelocityMaxChange);
 			// agentRB.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
 			// agentRB.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);
 		}
@@ -320,6 +348,7 @@ public class WallJumpAgent : Agent
 		}
 
 		if (!Physics.Raycast(agentRB.position, Vector3.down, 20)) //if the agent has gone over the edge, we done.
+		// if (agentRB.position.y < -2) //if the agent has gone over the edge, we done.
 		{
 			fail = true; //fell off bro
 			reward -= 1f; // BAD AGENT
@@ -328,6 +357,7 @@ public class WallJumpAgent : Agent
 		}
 
 		if (!Physics.Raycast(shortBlockRB.position, Vector3.down, 20)) //if the block has gone over the edge, we done.
+		// if (shortBlockRB.position.y < -2) //if the block has gone over the edge, we done.
 		{
 			fail = true; //fell off bro
 			reward -= 1f; // BAD AGENT
@@ -368,8 +398,8 @@ public class WallJumpAgent : Agent
 		ResetBlock(mediumBlockRB);
 		ResetBlock(tallBlockRB);
 		transform.position =  GetRandomSpawnPos();
-		wall.transform.localScale = new Vector3(wall.transform.localScale.x, Random.Range(0, 9.5f), wall.transform.localScale.z);
-		// wall.transform.localScale = new Vector3(wall.transform.localScale.x, academy.wallHeight, wall.transform.localScale.z);
+		// wall.transform.localScale = new Vector3(wall.transform.localScale.x, Random.Range(0, 9.5f), wall.transform.localScale.z);
+		wall.transform.localScale = new Vector3(wall.transform.localScale.x, academy.wallHeight, wall.transform.localScale.z);
 	}
 }
 

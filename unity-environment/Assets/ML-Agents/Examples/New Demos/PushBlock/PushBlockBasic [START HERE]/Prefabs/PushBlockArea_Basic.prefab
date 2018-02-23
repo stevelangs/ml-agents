@@ -735,16 +735,16 @@ MonoBehaviour:
   maxStep: 1024
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
-  agentRunSpeed: 2.5
-  agentTurningTorque: 15
   ground: {fileID: 1500989011945850}
   areaBounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -752,9 +752,6 @@ MonoBehaviour:
   goal: {fileID: 1441513772919942}
   block: {fileID: 1963252523971572}
   goalDetect: {fileID: 0}
-  spawnAreaMarginMultiplier: 0.8
-  goalScoredMaterial: {fileID: 2100000, guid: b3effc31ad8e442268e6b1f77b06fc4d, type: 2}
-  failMaterial: {fileID: 2100000, guid: afec5566ab8f64f288135f321697aff1, type: 2}
 --- !u!114 &114548077184658240
 MonoBehaviour:
   m_ObjectHideFlags: 1

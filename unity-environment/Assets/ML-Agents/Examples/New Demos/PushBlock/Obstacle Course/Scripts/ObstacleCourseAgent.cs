@@ -49,7 +49,8 @@ public class ObstacleCourseAgent : Agent
 	
 	public float furthestXPos;
 	string[] detectableObjects  = {"walkableSurface", "avoidObstacle", "agent"};
-	float[] stateArray; //bit array to collect state
+	public float[] stateArray; //bit array to collect state
+	float[] previousActions = {0f,0f,0f}; // last step's actions
 	// float rayc
 	// string[] detectableObjects;
 
@@ -61,6 +62,7 @@ public class ObstacleCourseAgent : Agent
 		// wall.transform.localScale = new Vector3(wall.transform.localScale.x, academy.wallHeight, wall.transform.localScale.z); //set the wall height to match the slider
 		transform.position =  GetRandomSpawnPos();
 		stateArray = new float[detectableObjects.Length + 2];
+		// previousActions = {0f,0f,0f}; // last step's actions
 
         // detectableObjects = { "banana", "agent", "wall", "badBanana", "frozenAgent" };
 
@@ -215,20 +217,20 @@ public class ObstacleCourseAgent : Agent
 			{
 				if (hit.collider.gameObject.CompareTag(detectableObjects[i]))
 				{
-					stateArray[i] = 1;  //tag hit
+					subList[i] = 1;  //tag hit
 					// print("raycast hit: " + detectableObjects[i]);
-					stateArray[hitDistIndex] = hit.distance / academy.agentRaycastDistance; //hit distance is stored in second to last pos
+					subList[hitDistIndex] = hit.distance / academy.agentRaycastDistance; //hit distance is stored in second to last pos
 					break;
 				}
 			}
 		}
 		else
 		{
-			stateArray[noHitIndex] = 1f; //nothing hit
+			subList[noHitIndex] = 1f; //nothing hit
 		}
-
+		stateArray = subList; //for debug
 		// print(stateArray);
-		state.AddRange(new List<float>(stateArray));  //adding n = detectableObjects.Length + 2 items to the state
+		state.AddRange(new List<float>(subList));  //adding n = detectableObjects.Length + 2 items to the state
 
 
 
@@ -287,6 +289,8 @@ public class ObstacleCourseAgent : Agent
 		RaycastAndAddState(raycastOrigin, -transform.right - transform.up/4); //left down
 		RaycastAndAddState(raycastOrigin, transform.right - transform.up/4); //right down
 
+
+		// state.AddRange(new List<float>(previousActions));
 		// RaycastHit hit;
 
 
@@ -405,7 +409,10 @@ public class ObstacleCourseAgent : Agent
 				//If it chooses -1 the agent will go left. 
 				//If it chooses .42 then it will go a little bit right
 				//If it chooses -.8 then it will go left (well...80% left)
-			
+
+			previousActions[0] = act[0];
+			previousActions[1] = act[1];
+			previousActions[2] = act[2];
 
 			float speedX = 0;
 			float speedZ = 0;
@@ -425,9 +432,11 @@ public class ObstacleCourseAgent : Agent
 				reward -= energyConservationPentalty;
 			}
 			
-			Vector3 directionX = Vector3.right * speedX;  //go left or right in world space
+			// Vector3 directionX = Vector3.right * speedX;  //go left or right in world space
+			Vector3 directionX = Vector3.right * Mathf.Clamp(speedX, -1, 1);  //go left or right in world space
 			// Vector3 directionY = new Vector3(0, agentRB.position.y, 0);
-            Vector3 directionZ = Vector3.forward * speedZ; //go forward or back in world space
+            Vector3 directionZ = Vector3.forward * Mathf.Clamp(speedZ, -1, 1); //go forward or back in world space
+            // Vector3 directionZ = Vector3.forward * speedZ; //go forward or back in world space
         	// Vector3 dirToGo = directionX + directionY + directionZ; //the dir we want to go
         	Vector3 dirToGo = directionX + directionZ; //the dir we want to go
 			// Vector3 targetPos = agentRB.position + dirToGo;
@@ -438,7 +447,8 @@ public class ObstacleCourseAgent : Agent
 			if(act[2] > 0 && !jumping && grounded)
 			{
 				//jump
-				reward -= .1f; //energy conservation penalty
+				reward -= .5f; //energy conservation penalty
+				// reward -= .1f; //energy conservation penalty
 				StartCoroutine(Jump());
 			}
 
@@ -533,8 +543,9 @@ public class ObstacleCourseAgent : Agent
 	{
 		if(col.gameObject.CompareTag("avoidObstacle")) //touched goal
 		{
-			reward -= 1; //you get a point
-			done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+			reward -= .1f; //you get a point
+			// print("collided with avoidObstacle");
+			// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
 			// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
 		}
 		// if(col.gameObject.CompareTag("goal")) //touched goal

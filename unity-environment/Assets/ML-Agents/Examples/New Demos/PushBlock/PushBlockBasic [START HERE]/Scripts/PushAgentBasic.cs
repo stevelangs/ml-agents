@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class PushAgentBasic : Agent
 {
-	public float agentRunSpeed = 3; //magnitude of the run velocity
-	public float agentTurningTorque = 3; //the torque to use when turning the agent
+	// public float agentRunSpeed = 3; //magnitude of the run velocity
+	// public float agentTurningTorque = 3; //the torque to use when turning the agent
 	public GameObject ground; //ground game object. we will use the area bounds to spawn the blocks
 	[HideInInspector]
 	public Bounds areaBounds; //the bounds of the pushblock area
+	PushBlockAcademy academy;
 
 	public GameObject goal; //goal to push the block to
     public GameObject block; //the orange block we are going to be pushing
@@ -19,9 +20,9 @@ public class PushAgentBasic : Agent
 	// public LayerMask groundLayer; //layer the ground is on. used for raycasts to detect when we've fallen off the edge of the platform. If we fall off we will penalize the agent
 	Rigidbody blockRB;  //cached on initialization
 	Rigidbody agentRB;  //cached on initialization
-	public float spawnAreaMarginMultiplier; //ex: .9 means 90% of spawn area will be used.... .1 margin will be left (so players don't spawn off of the edge). the higher this value, the longer training time required
-    public Material goalScoredMaterial; //when a goal is scored the ground will use this material for a few seconds.
-    public Material failMaterial; //when fail, the ground will use this material for a few seconds. 
+	// public float spawnAreaMarginMultiplier; //ex: .9 means 90% of spawn area will be used.... .1 margin will be left (so players don't spawn off of the edge). the higher this value, the longer training time required
+    // public Material goalScoredMaterial; //when a goal is scored the ground will use this material for a few seconds.
+    // public Material failMaterial; //when fail, the ground will use this material for a few seconds. 
 	Material groundMaterial; //cached on Awake()
 	Renderer groundRenderer;
 	Vector3 goalStartingPos;
@@ -30,15 +31,18 @@ public class PushAgentBasic : Agent
 	{
 		goalStartingPos = goal.transform.position; //cached goal starting Pos in case we want to remember that
 		brain = FindObjectOfType<Brain>(); //only one brain in the scene so this should find our brain. BRAAAINS.
-		//The action size can be set manually in the inspector, but we're setting it in Awake for convenience.
-		if (brain.brainParameters.actionSpaceType == StateType.continuous)
-        {
-			brain.brainParameters.actionSize = 3;
-		}
+		// //The action size can be set manually in the inspector, but we're setting it in Awake for convenience.
+		// if (brain.brainParameters.actionSpaceType == StateType.continuous)
+        // {
+		// 	brain.brainParameters.actionSize = 3;
+		// }
 		// else if (brain.brainParameters.actionSpaceType == StateType.discrete) //not used since we're 
 		// {
 		// 	brain.brainParameters.actionSize = 7;
 		// }
+		academy = FindObjectOfType<PushBlockAcademy>();
+
+
 	}
 
     public override void InitializeAgent()
@@ -107,8 +111,8 @@ public class PushAgentBasic : Agent
     public Vector3 GetRandomGoalPos()
     {
         Vector3 randomGoalPos = Vector3.zero;
-        float randomPosX = Random.Range(-areaBounds.extents.x * spawnAreaMarginMultiplier, areaBounds.extents.x * spawnAreaMarginMultiplier);
-        float randomPosZ = Random.Range(-areaBounds.extents.z * spawnAreaMarginMultiplier, areaBounds.extents.z * spawnAreaMarginMultiplier);
+        float randomPosX = Random.Range(-areaBounds.extents.x * academy.spawnAreaMarginMultiplier, areaBounds.extents.x * academy.spawnAreaMarginMultiplier);
+        float randomPosZ = Random.Range(-areaBounds.extents.z * academy.spawnAreaMarginMultiplier, areaBounds.extents.z * academy.spawnAreaMarginMultiplier);
         // float randomPosX = Random.Range(-areaBounds.extents.x, areaBounds.extents.x);
         // float randomPosZ = Random.Range(-areaBounds.extents.z, areaBounds.extents.z);
         randomGoalPos = ground.transform.position + new Vector3(randomPosX, goalStartingPos.y - ground.transform.position.y, randomPosZ ); //kind of a dumb way to do this. fix it later.
@@ -119,8 +123,8 @@ public class PushAgentBasic : Agent
     public Vector3 GetRandomSpawnPos()
     {
         Vector3 randomSpawnPos = Vector3.zero;
-        float randomPosX = Random.Range(-areaBounds.extents.x * spawnAreaMarginMultiplier, areaBounds.extents.x * spawnAreaMarginMultiplier);
-        float randomPosZ = Random.Range(-areaBounds.extents.z * spawnAreaMarginMultiplier, areaBounds.extents.z * spawnAreaMarginMultiplier);
+        float randomPosX = Random.Range(-areaBounds.extents.x * academy.spawnAreaMarginMultiplier, areaBounds.extents.x * academy.spawnAreaMarginMultiplier);
+        float randomPosZ = Random.Range(-areaBounds.extents.z * academy.spawnAreaMarginMultiplier, areaBounds.extents.z * academy.spawnAreaMarginMultiplier);
         randomSpawnPos = ground.transform.position + new Vector3(randomPosX, 1.5f, randomPosZ );
         return randomSpawnPos;
     }
@@ -130,7 +134,7 @@ public class PushAgentBasic : Agent
 	{
 		reward += 1; //you get a point
 		done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-		StartCoroutine(GoalScoredSwapGroundMaterial(goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+		StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
 
 	}
 
@@ -172,9 +176,14 @@ public class PushAgentBasic : Agent
 			Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -1f, 1f);  //go left or right in world space
             Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -1f, 1f); //go forward or back in world space
         	Vector3 dirToGo = directionX + directionZ; 
-			agentRB.AddForce(dirToGo * agentRunSpeed, ForceMode.VelocityChange); //GO
+			agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
 
-			agentRB.AddTorque(transform.up * act[2] * agentTurningTorque, ForceMode.VelocityChange); //turn right or left
+
+			if(dirToGo != Vector3.zero)
+			{
+				agentRB.rotation = Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
+			}
+			// agentRB.AddTorque(transform.up * act[2] * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
 
         }
         // else
@@ -233,7 +242,7 @@ public class PushAgentBasic : Agent
 
 		if (fail)
 		{
-			StartCoroutine(GoalScoredSwapGroundMaterial(failMaterial, .5f)); //swap ground material to indicate fail
+			StartCoroutine(GoalScoredSwapGroundMaterial(academy.failMaterial, .5f)); //swap ground material to indicate fail
 		}
 	}
 
