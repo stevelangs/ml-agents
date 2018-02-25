@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PushAgentRaycaster : Agent
 {
-	public PushArea area;
+	// public PushArea area;
 	public bool agentMustFindObjs;
 	public GameObject goal;
 	public bool foundGoal;
@@ -289,7 +289,7 @@ public class PushAgentRaycaster : Agent
 		// transform.position =  area.GetRandomSpawnPos();
 		agentRB.velocity = Vector3.zero; //we want the agent's vel to return to zero on reset
 		// needToFindBlock = true;
-        area.ResetArea();
+        // area.ResetArea();
 	}
 
 	public override void AgentOnDone()
