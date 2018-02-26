@@ -60,6 +60,7 @@ public class PushAgentBasic : Agent
 
 		MLAgentsHelpers.CollectVector3State(state, agentPosRelToGoal);  //vector to agent from goal
 		MLAgentsHelpers.CollectVector3State(state, blockPosRelToGoal); //vector to blockRB from goal
+		MLAgentsHelpers.CollectVector3State(state, blockPosRelToObstacle); //vector to blockRB from ostacle
 		MLAgentsHelpers.CollectVector3State(state, blockPosRelToAgent);  //vector to blockRB from agent
 		MLAgentsHelpers.CollectVector3State(state, obstaclePosRelToAgent);  //vector to obstacle from agent
 
