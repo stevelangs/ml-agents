@@ -40,9 +40,9 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      intensity: 1.53
+      intensity: 0.8
       radius: 0.3
       sampleCount: 10
       downsampling: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 0}
-      intensity: 0.316
+      intensity: 0.118
   grain:
     m_Enabled: 0
     m_Settings:

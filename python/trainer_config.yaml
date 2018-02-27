@@ -18,16 +18,24 @@ default:
     use_recurrent: false
 
 BrainPushBlockBasic:
-    # batch_size: 4096
-    # buffer_size: 8192
-    # epsilon: 0.6
-
     batch_size: 2048
     buffer_size: 4096
-    # time_horizon: 32
     summary_freq: 500
-    # use_recurrent: true
-    # normalize: false
+
+
+# BrainSwarm:
+#     sequence_length: 32
+#     batch_size: 16
+#     buffer_size: 64
+#     # num_layers: 2
+#     use_recurrent: true
+#     summary_freq: 500
+
+
+BrainSwarm:
+    batch_size: 2048
+    buffer_size: 4096
+    summary_freq: 500
 
 
 BrainWallJump:

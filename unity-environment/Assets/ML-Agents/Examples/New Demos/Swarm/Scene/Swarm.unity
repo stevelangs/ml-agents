@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &6327311
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,17 +162,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &6327313
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -239,6 +242,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &56453983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 226584073}
 --- !u!1 &63177481
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &63177482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,17 +302,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &63177484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -412,17 +430,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &80287347
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -508,7 +529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &90598712
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -537,17 +558,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &90598714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -662,17 +686,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &95499576
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -821,17 +848,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &127857715
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -946,17 +976,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &132065801
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1042,7 +1075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &134166144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1071,17 +1104,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &134166146
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1196,17 +1232,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &159364426
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1321,17 +1360,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &178127544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1417,7 +1459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &217703001
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1446,17 +1488,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &217703003
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1551,9 +1596,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    stateSize: 18
+    stateSize: 30
+    stackedStates: 1
     actionSize: 3
-    memorySize: 0
+    memorySize: 32
     cameraResolutions: []
     actionDescriptions:
     - 
@@ -1563,11 +1609,11 @@ MonoBehaviour:
     stateSpaceType: 1
   brainType: 3
   CoreBrains:
-  - {fileID: 1637165764}
-  - {fileID: 1648978690}
-  - {fileID: 1087312803}
-  - {fileID: 1404393843}
-  instanceID: 247086
+  - {fileID: 1067881314}
+  - {fileID: 1832649891}
+  - {fileID: 56453983}
+  - {fileID: 1719524103}
+  instanceID: 132604
 --- !u!1 &228868304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,7 +1633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &228868305
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1616,17 +1662,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &228868307
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1774,7 +1823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &267491930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1803,17 +1852,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &267491932
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1928,17 +1980,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &269353239
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2024,7 +2079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &303034415
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2053,17 +2108,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &303034417
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2149,7 +2207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &306682805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2178,17 +2236,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &306682807
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2303,17 +2364,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &316072823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2443,17 +2507,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &326660332
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2583,17 +2650,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &328041110
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2708,17 +2778,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &340807515
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2804,7 +2877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &347131079
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2833,17 +2906,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &347131081
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2929,7 +3005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &364534510
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2958,17 +3034,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &364534512
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3083,7 +3162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &366344166
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3112,17 +3191,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &366344168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3208,7 +3290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &375482781
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3237,17 +3319,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &375482783
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3333,7 +3418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &381340589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3362,17 +3447,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &381340591
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3472,17 +3560,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &481526768
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3583,7 +3674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &491792408
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3612,17 +3703,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &491792410
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3708,7 +3802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &493943240
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3737,17 +3831,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &493943242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3847,17 +3944,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &537073943
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3987,17 +4087,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &555849953
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4083,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &572394607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4112,17 +4215,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &572394609
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4208,7 +4314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &579409075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4237,17 +4343,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &579409077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4333,7 +4442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &603226584
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4362,17 +4471,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &603226586
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4554,17 +4666,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &630349303
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4679,17 +4794,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &633210460
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4819,17 +4937,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &640270356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4915,7 +5036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &663872484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4944,17 +5065,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &663872486
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5069,17 +5193,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &707423683
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5194,17 +5321,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &708657409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5319,17 +5449,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &718691846
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5415,7 +5548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &737358739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5444,17 +5577,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &737358741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5554,17 +5690,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &747377590
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5759,17 +5898,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &789927605
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5855,7 +5997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &811217432
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5884,17 +6026,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &811217434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6009,17 +6154,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &826325871
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6105,7 +6253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &865461995
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6134,17 +6282,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &865461997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6211,11 +6362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 101
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &874087535 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1677332926772904, guid: 54e3af627216447f790531de496099f0,
-    type: 2}
-  m_PrefabInternal: {fileID: 913292646}
 --- !u!1 &879086484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6264,17 +6410,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &879086487
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6360,7 +6509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &893734458
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6389,17 +6538,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &893734460
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6485,7 +6637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &901912838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6514,17 +6666,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &901912840
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6639,17 +6794,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &902806576
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6728,6 +6886,7 @@ GameObject:
   - component: {fileID: 911874850}
   - component: {fileID: 911874849}
   - component: {fileID: 911874853}
+  - component: {fileID: 911874854}
   m_Layer: 0
   m_Name: Seed
   m_TagString: seed
@@ -6809,14 +6968,95 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 911874848}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 111
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &911874854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911874848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79fbd9e946144318281a5da9dd122f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  rotateRB: 0
+  rotationSpeed: {x: 0, y: 0, z: 0}
+  rotationSpeedMultiplierX:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rotationSpeedMultiplierY:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rotationSpeedMultiplierZ:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  adjustMaterialFrictionBasedOnRotationSpeed: 0
+  platformPhysicsMaterial: {fileID: 0}
+  oscillate: 1
+  oscillateForce: 0
+  oscillateX: 1
+  oscillateXCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 3
+      value: 5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 0
+  oscillateY: 0
+  oscillateYCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  oscillateZ: 0
+  oscillateZCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  matchRotation: 0
+  matchXRot: 0
+  matchYRot: 0
+  matchZRot: 0
+  maxDegreesDelta: 0
+  matchRotAngVel: 0
+  matchRotationTargetTransform: {fileID: 0}
+  matchPosition: 0
+  matchPositionTargetTransform: {fileID: 0}
+  matchPosForce: 0
+  targetVel: 555
+  maxVel: 11
 --- !u!1001 &913292646
 Prefab:
   m_ObjectHideFlags: 0
@@ -6890,7 +7130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &945753980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6919,17 +7159,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &945753982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7015,7 +7258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &980309827
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7044,17 +7287,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &980309829
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7157,7 +7403,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009000883}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
@@ -7218,7 +7464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1012002172
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7247,17 +7493,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1012002174
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7343,7 +7592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1016507981
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7372,17 +7621,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1016507983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7468,7 +7720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1019704461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7497,17 +7749,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1019704463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7593,7 +7848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1059716485
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7622,17 +7877,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1059716487
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7718,7 +7976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1060559010
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7747,17 +8005,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1060559012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7824,7 +8085,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1087312803
+--- !u!114 &1067881314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -7832,9 +8093,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions:
+  - key: 97
+    index: 0
+    value: -1
+  - key: 100
+    index: 0
+    value: 1
+  - key: 119
+    index: 1
+    value: 1
+  - key: 115
+    index: 1
+    value: -1
+  - key: 32
+    index: 2
+    value: 1
+  discretePlayerActions:
+  - key: 97
+    value: 1
+  - key: 100
+    value: 2
+  - key: 119
+    value: 3
+  - key: 115
+    value: 4
+  - key: 107
+    value: 5
+  - key: 108
+    value: 6
+  defaultAction: 0
   brain: {fileID: 226584073}
 --- !u!1 &1149020504
 GameObject:
@@ -7855,7 +8147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1149020505
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7884,17 +8176,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1149020507
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8009,17 +8304,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1223521148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8126,8 +8424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393ba449d1ca2d84ead6595000d41c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Settings:
-  - {fileID: 1918715015}
 --- !u!1 &1265651285
 GameObject:
   m_ObjectHideFlags: 0
@@ -8269,7 +8565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1310108643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8298,17 +8594,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1310108645
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8423,17 +8722,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1323908199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8519,7 +8821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1331930502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8548,17 +8850,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1331930504
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8673,17 +8978,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1340108032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8798,17 +9106,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1378640770
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8923,17 +9234,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1380853918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9019,7 +9333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1386788477
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9048,17 +9362,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1386788479
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9125,32 +9442,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1404393843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 4900000, guid: 8ecf8b4d920a04cf1a32b6ad34de4675, type: 3}
-  graphScope: 
-  graphPlaceholders:
-  - name: epsilon
-    valueType: 1
-    minValue: -1
-    maxValue: 1
-  BatchSizePlaceholderName: batch_size
-  StatePlacholderName: state
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  ObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  brain: {fileID: 226584073}
 --- !u!1 &1432082908
 GameObject:
   m_ObjectHideFlags: 0
@@ -9199,17 +9490,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1432082911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9295,7 +9589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1450088314
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9324,17 +9618,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1450088316
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9420,7 +9717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1452443974
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9449,17 +9746,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1452443976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9559,17 +9859,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1459989634
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9767,17 +10070,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1504887983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9863,7 +10169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1511824427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9892,17 +10198,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1511824429
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10017,17 +10326,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1524039117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10113,7 +10425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1531252883
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10142,17 +10454,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1531252885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10261,7 +10576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSteps: 0
-  frameToSkip: 4
+  frameToSkip: 2
   waitTime: 0
   isInference: 1
   trainingConfiguration:
@@ -10278,13 +10593,14 @@ MonoBehaviour:
     targetFrameRate: 60
   defaultResetParameters: []
   done: 0
+  maxStepReached: 0
   episodeCount: 1
   currentStep: 0
   seed: {fileID: 911874848}
-  agentRaycastDist: 5
+  agentRaycastDist: 3
   agentMoveSpeed: 1
   agentRotationSpeed: 15
-  gravityMultiplier: 0
+  gravityMultiplier: 1
 --- !u!1 &1614336479
 GameObject:
   m_ObjectHideFlags: 0
@@ -10304,7 +10620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1614336480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10333,17 +10649,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1614336482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10429,7 +10748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1629151446
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10458,17 +10777,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1629151448
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10535,49 +10857,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1637165764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  continuousPlayerActions:
-  - key: 97
-    index: 0
-    value: -1
-  - key: 100
-    index: 0
-    value: 1
-  - key: 119
-    index: 1
-    value: 1
-  - key: 115
-    index: 1
-    value: -1
-  - key: 32
-    index: 2
-    value: 1
-  discretePlayerActions:
-  - key: 97
-    value: 1
-  - key: 100
-    value: 2
-  - key: 119
-    value: 3
-  - key: 115
-    value: 4
-  - key: 107
-    value: 5
-  - key: 108
-    value: 6
-  defaultAction: 0
-  brain: {fileID: 226584073}
 --- !u!1 &1645802714
 GameObject:
   m_ObjectHideFlags: 0
@@ -10626,17 +10905,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1645802717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10703,19 +10985,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1648978690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 0}
 --- !u!1 &1663287222
 GameObject:
   m_ObjectHideFlags: 0
@@ -10764,17 +11033,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1663287225
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10860,7 +11132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1694906909
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10889,17 +11161,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1694906911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10985,7 +11260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1713112300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11014,17 +11289,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1713112302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11091,6 +11369,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1719524103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 4900000, guid: 7126af79618904637b5196594dc68a05, type: 3}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  StatePlacholderName: state
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  ObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  brain: {fileID: 226584073}
 --- !u!1 &1722171744
 GameObject:
   m_ObjectHideFlags: 0
@@ -11207,17 +11507,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1726050920
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11332,17 +11635,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1735631016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11428,7 +11734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1749113689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11457,17 +11763,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1749113691
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11553,7 +11862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1758721592
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11582,17 +11891,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1758721594
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11692,17 +12004,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1768141036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11832,17 +12147,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1783327777
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11909,7 +12227,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1918715015
+--- !u!114 &1832649891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -11917,18 +12235,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c011637fb4c894c56a9178092966b5ac, type: 3}
-  m_Name: 340521d2-1746-4e7c-a991-5c91a468ec3b
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  m_DisplayName: Animation
-  m_Id: b341343d-bcfe-4154-b809-4a77d8ff6c0b
-  gameObject: {fileID: 874087535}
-  enabled: 1
-  recursive: 1
-  fold: 1
-  bindingTypeName:
-  - UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  broadcast: 1
+  brain: {fileID: 0}
 --- !u!1 &1928409213
 GameObject:
   m_ObjectHideFlags: 0
@@ -11962,17 +12273,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1928409215
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12073,7 +12387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1936792361
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12102,17 +12416,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1936792363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12227,17 +12544,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1944795998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12323,7 +12643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1959497845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12352,17 +12672,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1959497847
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12482,7 +12805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1981195070
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12511,17 +12834,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &1981195072
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12612,7 +12938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &2004201114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12641,17 +12967,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2004201116
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12819,17 +13148,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2026981005
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13055,17 +13387,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2037387351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13180,17 +13515,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2045735394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13305,17 +13643,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2056753274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13430,17 +13771,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2123659297
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13555,17 +13899,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2127849500
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13680,17 +14027,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2143290527
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13805,17 +14155,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 226584073}
   observations: []
-  maxStep: 1500
+  maxStep: 2000
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
   agentStoredAction: []
   memory: []
   id: 0
+  distSqrMag: 0
 --- !u!23 &2144172240
 MeshRenderer:
   m_ObjectHideFlags: 0

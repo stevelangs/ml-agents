@@ -9,7 +9,8 @@ public class SwarmAgent : Agent
 
 	Rigidbody agentRB;  //cached on initialization
 	SwarmAcademy academy;
-
+	string[] detectableObjects  = {"seed", "agent"};
+	public float distSqrMag;
 	void Awake()
 	{
 		academy = FindObjectOfType<SwarmAcademy>();
@@ -32,112 +33,119 @@ public class SwarmAgent : Agent
 		MLAgentsHelpers.CollectVector3State(state, vectorToSeed);  //pos of goal rel to ground
 		MLAgentsHelpers.CollectRotationState(state, agentRB.transform); //agent's rotation
 
+		RaycastAndAddState(agentRB.position, transform.forward); //forward
+		RaycastAndAddState(agentRB.position, -transform.forward); //back
+		RaycastAndAddState(agentRB.position, transform.right); //right
+		RaycastAndAddState(agentRB.position, -transform.right); //left
+		RaycastAndAddState(agentRB.position, transform.up); //up
+		RaycastAndAddState(agentRB.position, -transform.up); //down
 
-		RaycastHit hit;
-		float didWeHitSomething = 0; //1 if yes, 0 if no
-		float hitDistance = academy.agentRaycastDist; //how far away was it. if nothing was hit then this will return our max raycast dist (which is 10 right now)
+		// RaycastHit hit;
+		// float didWeHitSomething = 0; //1 if yes, 0 if no
+		// float hitDistance = academy.agentRaycastDist; //how far away was it. if nothing was hit then this will return our max raycast dist (which is 10 right now)
 		
-		//forward
-		if (Physics.Raycast(agentRB.position, transform.forward, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("agent"))
-			{
-				// reward += .001f;
-				didWeHitSomething = 1;
-				hitDistance = hit.distance;
-			}
-		}
-		else
-		{
-			didWeHitSomething = 0;
-		}
-		state.Add(didWeHitSomething);
-		state.Add(hitDistance);
+		// //forward
+		// if (Physics.Raycast(agentRB.position, transform.forward, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("agent"))
+		// 	{
+		// 		// reward += .001f;
+		// 		didWeHitSomething = 1;
+		// 		hitDistance = hit.distance;
+		// 	}
+		// }
+		// else
+		// {
+		// 	didWeHitSomething = 0;
+		// }
+		// state.Add(didWeHitSomething);
+		// state.Add(hitDistance);
 
-		//back
-		if (Physics.Raycast(agentRB.position, -transform.forward, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("agent"))
-			{
-				// reward += .001f;
-				didWeHitSomething = 1;
-				hitDistance = hit.distance;
-			}
-		}
-		else
-		{
-			didWeHitSomething = 0;
-		}
-		state.Add(didWeHitSomething);
-		state.Add(hitDistance);
+		// //back
+		// if (Physics.Raycast(agentRB.position, -transform.forward, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("agent"))
+		// 	{
+		// 		// reward += .001f;
+		// 		didWeHitSomething = 1;
+		// 		hitDistance = hit.distance;
+		// 	}
+		// }
+		// else
+		// {
+		// 	didWeHitSomething = 0;
+		// }
+		// state.Add(didWeHitSomething);
+		// state.Add(hitDistance);
 
-		//left
-		if (Physics.Raycast(agentRB.position, -transform.right, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("agent"))
-			{
-				// reward += .001f;
-				didWeHitSomething = 1;
-				hitDistance = hit.distance;
-			}
-		}
-		else
-		{
-			didWeHitSomething = 0;
-		}
-		state.Add(didWeHitSomething);
-		state.Add(hitDistance);
+		// //left
+		// if (Physics.Raycast(agentRB.position, -transform.right, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("agent"))
+		// 	{
+		// 		// reward += .001f;
+		// 		didWeHitSomething = 1;
+		// 		hitDistance = hit.distance;
+		// 	}
+		// }
+		// else
+		// {
+		// 	didWeHitSomething = 0;
+		// }
+		// state.Add(didWeHitSomething);
+		// state.Add(hitDistance);
 
-		//right
-		if (Physics.Raycast(agentRB.position, transform.right, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("agent"))
-			{
-				// reward += .001f;
-				didWeHitSomething = 1;
-				hitDistance = hit.distance;
-			}
-		}
-		else
-		{
-			didWeHitSomething = 0;
-		}
-		state.Add(didWeHitSomething);
-		state.Add(hitDistance);
+		// //right
+		// if (Physics.Raycast(agentRB.position, transform.right, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("agent"))
+		// 	{
+		// 		// reward += .001f;
+		// 		didWeHitSomething = 1;
+		// 		hitDistance = hit.distance;
+		// 	}
+		// }
+		// else
+		// {
+		// 	didWeHitSomething = 0;
+		// }
+		// state.Add(didWeHitSomething);
+		// state.Add(hitDistance);
 
-		//up
-		if (Physics.Raycast(agentRB.position, transform.up, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("agent"))
-			{
-				// reward += .001f;
-				didWeHitSomething = 1;
-				hitDistance = hit.distance;
-			}
-		}
-		else
-		{
-			didWeHitSomething = 0;
-		}
-		state.Add(didWeHitSomething);
-		state.Add(hitDistance);
+		// //up
+		// if (Physics.Raycast(agentRB.position, transform.up, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("agent"))
+		// 	{
+		// 		// reward += .001f;
+		// 		didWeHitSomething = 1;
+		// 		hitDistance = hit.distance;
+		// 	}
+		// }
+		// else
+		// {
+		// 	didWeHitSomething = 0;
+		// }
+		// state.Add(didWeHitSomething);
+		// state.Add(hitDistance);
 
-		//down
-		if (Physics.Raycast(agentRB.position, transform.up, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
-		{
-			if(hit.collider.CompareTag("agent"))
-			{
-				// reward += .001f;
-				didWeHitSomething = 1;
-				hitDistance = hit.distance;
-			}
-		}
-		else
-		{
-			didWeHitSomething = 0;
-		}
-		state.Add(didWeHitSomething);
-		state.Add(hitDistance);
+		// //down
+		// if (Physics.Raycast(agentRB.position, transform.up, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// {
+		// 	if(hit.collider.CompareTag("agent"))
+		// 	{
+		// 		// reward += .001f;
+		// 		didWeHitSomething = 1;
+		// 		hitDistance = hit.distance;
+		// 		// hitDistance = hit.distance;
+		// 	}
+		// }
+		// else
+		// {
+		// 	didWeHitSomething = 0;
+		// }
+		// state.Add(didWeHitSomething);
+		// state.Add(hitDistance/academy.agentRaycastDist);
 
 
 
@@ -148,6 +156,41 @@ public class SwarmAgent : Agent
 		return state;
 	}
 
+	public void RaycastAndAddState(Vector3 pos, Vector3 dir)
+	{
+		RaycastHit hit;
+		// if(showRaycastRays)
+		// {
+		// 	Debug.DrawRay(pos, dir * 5, Color.green, 0f, true);
+		// }
+
+		float[] subList = new float[detectableObjects.Length + 2];
+		var noHitIndex = detectableObjects.Length; //if we didn't hit anything this will be 1
+		var hitDistIndex = detectableObjects.Length + 1; //if we hit something the distance will be stored here.
+
+		// if (Physics.SphereCast(transform.position, 1.0f, position, out hit, rayDistance))
+		if (Physics.Raycast(pos, dir, out hit, academy.agentRaycastDist)) // raycast forward to look for walls
+		// if (Physics.SphereCast(transform.position, 1.0f, position, out hit, rayDistance))
+		{
+			for (int i = 0; i < detectableObjects.Length; i++)
+			{
+				if (hit.collider.gameObject.CompareTag(detectableObjects[i]))
+				{
+					subList[i] = 1;  //tag hit
+					// print("raycast hit: " + detectableObjects[i]);
+					subList[hitDistIndex] = hit.distance / academy.agentRaycastDist; //hit distance is stored in second to last pos
+					break;
+				}
+			}
+		}
+		else
+		{
+			subList[noHitIndex] = 1f; //nothing hit
+		}
+		// stateArray = subList; //for debug
+		// print(stateArray);
+		state.AddRange(new List<float>(subList));  //adding n = detectableObjects.Length + 2 items to the state
+	}
 
 
 	// //use the ground's bounds to pick a random spawn pos
@@ -226,9 +269,17 @@ public class SwarmAgent : Agent
 
         MoveAgent(act); //perform agent actions
 		// reward -= (academy.seed.transform.position - agentRB.position).sqrMagnitude/1000;
-		float proxReward = 1 - (academy.seed.transform.position - agentRB.position).sqrMagnitude/100;
-		// print(proxReward);
-		reward += proxReward;
+		distSqrMag = (academy.seed.transform.position - agentRB.position).sqrMagnitude;
+		if(distSqrMag > 3)
+		{
+			float proxReward = 1 - distSqrMag/100;
+			// print(proxReward);
+			reward += proxReward;
+
+		}
+			// float proxReward = 1 - distSqrMag/100;
+			// // print(proxReward);
+			// reward += proxReward;
 
 		// reward -= .001f; // don't waste time
 		// bool fail = false;  // did the agent or block get pushed off the edge?
@@ -261,13 +312,13 @@ public class SwarmAgent : Agent
 	{
 		if(col.gameObject.CompareTag("seed"))
 		{
-			reward -= .1f;
-			done = true;
+			reward -= 1f;
+			// done = true;
 		}
 		if(col.gameObject.CompareTag("agent"))
 		{
-			reward -= .1f;
-			done = true;
+			reward -= 1f;
+			// done = true;
 		}
 	}
 	
