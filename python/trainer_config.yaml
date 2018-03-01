@@ -22,6 +22,20 @@ BrainPushBlockBasic:
     buffer_size: 4096
     summary_freq: 500
 
+BrainPyramid:
+    batch_size: 2048
+    buffer_size: 4096
+    summary_freq: 500
+
+
+# BrainPyramid:
+#     sequence_length: 16
+#     batch_size: 2048
+#     buffer_size: 4096
+#     # num_layers: 2
+#     use_recurrent: true
+#     summary_freq: 500
+
 
 # BrainSwarm:
 #     sequence_length: 32

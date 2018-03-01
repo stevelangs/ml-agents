@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleCourseAgent : Agent
+public class PODAgent : Agent
 {
 	public GameObject ground; //ground game object. we will use the area bounds to spawn the blocks
 	public GameObject spawnArea; //ground game object. we will use the area bounds to spawn the blocks
@@ -25,7 +25,7 @@ public class ObstacleCourseAgent : Agent
 	Material groundMaterial; //cached on Awake()
 	Renderer groundRenderer;
 	Vector3 goalStartingPos;
-	ObstacleCourseAcademy academy;
+	PODAcademy academy;
 
 
 
@@ -48,7 +48,7 @@ public class ObstacleCourseAgent : Agent
 	public bool showRaycastRays;
 	
 	public float furthestXPos;
-	string[] detectableObjects  = {"walkableSurface", "avoidObstacle", "agent"};
+	string[] detectableObjects  = {"walkableSurface", "pyramid", "agent"};
 	public float[] stateArray; //bit array to collect state
 	float[] previousActions = {0f,0f,0f}; // last step's actions
 	// float rayc
@@ -56,7 +56,7 @@ public class ObstacleCourseAgent : Agent
 
 	void Awake()
 	{
-		academy = FindObjectOfType<ObstacleCourseAcademy>();
+		academy = FindObjectOfType<PODAcademy>();
 		// goalStartingPos = goal.transform.position; //cached goal starting Pos in case we want to remember that
 		brain = FindObjectOfType<Brain>(); //only one brain in the scene so this should find our brain. BRAAAINS.
 		// wall.transform.localScale = new Vector3(wall.transform.localScale.x, academy.wallHeight, wall.transform.localScale.z); //set the wall height to match the slider
@@ -78,6 +78,7 @@ public class ObstacleCourseAgent : Agent
 		StartGroundCheck();
 
 		agentRB	= GetComponent<Rigidbody>(); //cache the agent rigidbody
+		agentRB.maxAngularVelocity = 500;
 		// shortBlockRB = shortBlock.GetComponent<Rigidbody>(); //cache the block rigidbody
 		// mediumBlockRB = mediumBlock.GetComponent<Rigidbody>(); //cache the block rigidbody
 		// tallBlockRB	= tallBlock.GetComponent<Rigidbody>(); //cache the block rigidbody
@@ -106,6 +107,7 @@ public class ObstacleCourseAgent : Agent
 		jumping = true;
 		jumpStartingPos = agentRB.position;
 		// jumpTargetPos = agentRB.position + Vector3.up * jumpHeight;
+		// yield return new WaitForSecondsRealtime(jumpTime);
 		yield return new WaitForSeconds(jumpTime);
 		jumping = false;
 		// StartCoroutine(Falling());//should be falling now
@@ -197,7 +199,8 @@ public class ObstacleCourseAgent : Agent
 			Debug.DrawRay(pos, dir * 5, Color.green, 0f, true);
 		}
 
-		float[] subList = new float[detectableObjects.Length + 2];
+		// float[] subList = new float[detectableObjects.Length + 2];
+		float[] subList = new float[detectableObjects.Length + 5];
 		//bit array looks like this
 		// [walkableSurface, avoidObstacle, nothing hit, distance] if true 1, else 0
 		// [0] walkableSurface
@@ -206,6 +209,9 @@ public class ObstacleCourseAgent : Agent
 		// [3] hit distance
 		var noHitIndex = detectableObjects.Length; //if we didn't hit anything this will be 1
 		var hitDistIndex = detectableObjects.Length + 1; //if we hit something the distance will be stored here.
+		var hitNormalX = detectableObjects.Length + 2; //if we hit something the distance will be stored here.
+		var hitNormalY = detectableObjects.Length + 3; //if we hit something the distance will be stored here.
+		var hitNormalZ = detectableObjects.Length + 4; //if we hit something the distance will be stored here.
 
 		// string[] detectableObjects  = { "banana", "agent", "wall", "badBanana", "frozenAgent" };
 
@@ -213,6 +219,12 @@ public class ObstacleCourseAgent : Agent
 		if (Physics.Raycast(pos, dir, out hit, academy.agentRaycastDistance)) // raycast forward to look for walls
 		// if (Physics.SphereCast(transform.position, 1.0f, position, out hit, rayDistance))
 		{
+			// if(dir == transform.forward)
+			// {
+			// 	print (hit.transform.name);
+			// }
+			// MLAgentsHelpers.CollectVector3State(state, hit.point);
+			// MLAgentsHelpers.CollectVector3State(state, hit.normal);
 			for (int i = 0; i < detectableObjects.Length; i++)
 			{
 				if (hit.collider.gameObject.CompareTag(detectableObjects[i]))
@@ -220,6 +232,9 @@ public class ObstacleCourseAgent : Agent
 					subList[i] = 1;  //tag hit
 					// print("raycast hit: " + detectableObjects[i]);
 					subList[hitDistIndex] = hit.distance / academy.agentRaycastDistance; //hit distance is stored in second to last pos
+					subList[hitNormalX] = hit.normal.x;
+					subList[hitNormalY] = hit.normal.y;
+					subList[hitNormalZ] = hit.normal.z;
 					break;
 				}
 			}
@@ -227,6 +242,7 @@ public class ObstacleCourseAgent : Agent
 		else
 		{
 			subList[noHitIndex] = 1f; //nothing hit
+			// state.AddRange(new List<float>(new float[6]));//no hit point and no normal
 		}
 		stateArray = subList; //for debug
 		// print(stateArray);
@@ -282,6 +298,7 @@ public class ObstacleCourseAgent : Agent
 		Vector3 raycastOrigin = agentRB.position;
 
 		RaycastAndAddState(raycastOrigin, transform.forward); //forward
+		RaycastAndAddState(raycastOrigin, -transform.forward); //back
 		RaycastAndAddState(raycastOrigin, transform.forward + transform.right); //forward right
 		RaycastAndAddState(raycastOrigin, transform.forward - transform.right); //forward left
 		RaycastAndAddState(raycastOrigin, transform.forward + transform.up/2); //forward up
@@ -410,72 +427,180 @@ public class ObstacleCourseAgent : Agent
 				//If it chooses .42 then it will go a little bit right
 				//If it chooses -.8 then it will go left (well...80% left)
 
-			previousActions[0] = act[0];
-			previousActions[1] = act[1];
-			previousActions[2] = act[2];
+			// previousActions[0] = act[0];
+			// previousActions[1] = act[1];
+			// previousActions[2] = act[2];
 
-			float speedX = 0;
-			float speedZ = 0;
-			if(act[0] != 0)
-			{
-				float energyConservationPentalty = Mathf.Abs(act[0])/1000;
-				speedX = grounded? act[0]: act[0]/2; //if we are in the air, our move speed should be a fraction of normal speed.
+			// float speedX = 0;
+			// float speedZ = 0;
+			//x torque
+			// if(act[0] != 0)
+			// {
+			// 	float energyConservationPentalty = Mathf.Abs(act[0])/1000;
+				// speedX = grounded? act[0]: act[0]/2; //if we are in the air, our move speed should be a fraction of normal speed.
 				// print("act[0] = " + act[0]);
-				reward -= energyConservationPentalty;
 				// reward -= .0001f;
-			}
-			if(act[1] != 0)
-			{
-				float energyConservationPentalty = Mathf.Abs(act[1])/1000;
-				speedZ= grounded? act[1]: act[1]/2; //if we are in the air, our move speed should be a fraction of normal speed.
+			// }
+			//y torque
+			// if(act[1] != 0)
+			// {
+			// 	float energyConservationPentalty = Mathf.Abs(act[1])/1000;
+			// 	// speedZ= grounded? act[1]: act[1]/2; //if we are in the air, our move speed should be a fraction of normal speed.
 				// print("act[1] = " + act[1]);
-				reward -= energyConservationPentalty;
-			}
+				reward -= Mathf.Abs(act[0])/100; //x
+				reward -= Mathf.Abs(act[1])/100; //y
+				// reward -= Mathf.Abs(act[2])/1000; //z
+				agentRB.AddTorque(transform.right * Mathf.Clamp(act[0], -1, 1) * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+				agentRB.AddTorque(transform.up * Mathf.Clamp(act[1], -1, 1) * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+				// agentRB.AddTorque(transform.right * act[0], ForceMode.VelocityChange); //turn right or left
+				// agentRB.AddTorque(transform.up * act[1], ForceMode.VelocityChange); //turn right or left
+				// agentRB.AddTorque(transform.right * act[0] * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+				// agentRB.AddTorque(transform.up * act[1] * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+				// agentRB.AddTorque(transform.forward * Mathf.Clamp(act[2], -1, 1) * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+
+			// }
 			
-			// Vector3 directionX = Vector3.right * speedX;  //go left or right in world space
-			Vector3 directionX = Vector3.right * Mathf.Clamp(speedX, -1, 1);  //go left or right in world space
-			// Vector3 directionY = new Vector3(0, agentRB.position.y, 0);
-            Vector3 directionZ = Vector3.forward * Mathf.Clamp(speedZ, -1, 1); //go forward or back in world space
-            // Vector3 directionZ = Vector3.forward * speedZ; //go forward or back in world space
-        	// Vector3 dirToGo = directionX + directionY + directionZ; //the dir we want to go
-        	Vector3 dirToGo = directionX + directionZ; //the dir we want to go
-			// Vector3 targetPos = agentRB.position + dirToGo;
-			// Vector3 moveVector = targetPos - agentRB.position;
+
+			// Vector3 directionX = Vector3.right * Mathf.Clamp(speedX, -1, 1);  //go left or right in world space
+            // Vector3 directionZ = Vector3.forward * Mathf.Clamp(speedZ, -1, 1); //go forward or back in world space
         	// Vector3 dirToGo = directionX + directionZ; //the dir we want to go
-			// dirToGo.y = 0;
 
-			if(act[2] > 0 && !jumping && grounded)
-			{
-				//jump
-				reward -= .5f; //energy conservation penalty
-				// reward -= .1f; //energy conservation penalty
-				StartCoroutine(Jump());
-			}
+			// if(act[3] > 0 && !jumping && grounded)
+			// {
+			// 	//jump
+			// 	reward -= .5f; //energy conservation penalty
+			// 	// reward -= .1f; //energy conservation penalty
+			// 	StartCoroutine(Jump());
+			// }
 
 
-			if(agentRB.velocity.sqrMagnitude < academy.maxAgentSqrMagnitude)
-			{
-				//add force
-				agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+			// if(agentRB.velocity.sqrMagnitude < academy.maxAgentSqrMagnitude)
+			// {
+			// 	//add force
+			// 	agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+			// }
 
-			}
-			// agentRB.AddForce(moveVector * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-			//rotate the player forward
-			if(dirToGo != Vector3.zero)
-			{
-				// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(agentRB.position + dirToGo), Time.deltaTime * academy.agentRotationSpeed));
-				// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(Vector3.up + dirToGo), Time.deltaTime * academy.agentRotationSpeed));
-				agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed));
-				// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(agentRB.position + dirToGo - agentRB.position), Time.deltaTime * academy.agentRotationSpeed));
-				// agentRB.rotation = Quaternion.Slerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
-			}
+			// // agentRB.AddForce(moveVector * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+			// //rotate the player forward
+			// if(dirToGo != Vector3.zero)
+			// {
+			// 	// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(agentRB.position + dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+			// 	// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(Vector3.up + dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+			// 	agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+			// 	// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(agentRB.position + dirToGo - agentRB.position), Time.deltaTime * academy.agentRotationSpeed));
+			// 	// agentRB.rotation = Quaternion.Slerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
+			// }
+
+			// reward -= Mathf.Abs(act[3]);
+			// agentRB.AddTorque(transform.up * Mathf.Clamp(act[3], -1, 1) * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+
         }
     }
 
+
+
+	// public void MoveAgent(float[] act) 
+	// {
+	
+	// 	//AGENT ACTIONS
+	// 	// this is where we define the actions our agent can use...stuff like "go left", "go forward", "turn" ...etc.
+
+	// 	//Continuous control Vs. Discrete control
+
+	// 	//If we're using Continuous control you will need to change the Action
+    //     if (brain.brainParameters.actionSpaceType == StateType.continuous)
+    //     {
+
+
+	// 		//Continuous control means we are letting the neural network set the direction on a sliding scale. 
+	// 		//We will define the number of "slots" we want to use here. In this example we need 3 "slots" to define:
+	// 			//right/left movement (act[0])
+	// 			//forward/back movement (act[1])
+	// 			//rotate right/left movement (act[2])
+				
+	// 		//Example: One agent action is that the agent can go right or left. It is defined in this line:
+	// 			//Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -1f, 1f);
+
+	// 			//The neural network is setting the act[0] value using a float in between -1 & 1. 
+	// 			//If it chooses 1 then the agent will go right. 
+	// 			//If it chooses -1 the agent will go left. 
+	// 			//If it chooses .42 then it will go a little bit right
+	// 			//If it chooses -.8 then it will go left (well...80% left)
+
+	// 		previousActions[0] = act[0];
+	// 		previousActions[1] = act[1];
+	// 		previousActions[2] = act[2];
+
+	// 		float speedX = 0;
+	// 		float speedZ = 0;
+	// 		if(act[0] != 0)
+	// 		{
+	// 			float energyConservationPentalty = Mathf.Abs(act[0])/1000;
+	// 			speedX = grounded? act[0]: act[0]/2; //if we are in the air, our move speed should be a fraction of normal speed.
+	// 			// print("act[0] = " + act[0]);
+	// 			reward -= energyConservationPentalty;
+	// 			// reward -= .0001f;
+	// 		}
+	// 		if(act[1] != 0)
+	// 		{
+	// 			float energyConservationPentalty = Mathf.Abs(act[1])/1000;
+	// 			speedZ= grounded? act[1]: act[1]/2; //if we are in the air, our move speed should be a fraction of normal speed.
+	// 			// print("act[1] = " + act[1]);
+	// 			reward -= energyConservationPentalty;
+	// 		}
+			
+	// 		Vector3 directionX = Vector3.right * Mathf.Clamp(speedX, -1, 1);  //go left or right in world space
+    //         Vector3 directionZ = Vector3.forward * Mathf.Clamp(speedZ, -1, 1); //go forward or back in world space
+    //     	Vector3 dirToGo = directionX + directionZ; //the dir we want to go
+
+	// 		if(act[2] > 0 && !jumping && grounded)
+	// 		{
+	// 			//jump
+	// 			reward -= .5f; //energy conservation penalty
+	// 			// reward -= .1f; //energy conservation penalty
+	// 			StartCoroutine(Jump());
+	// 		}
+
+
+	// 		if(agentRB.velocity.sqrMagnitude < academy.maxAgentSqrMagnitude)
+	// 		{
+	// 			//add force
+	// 			agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+
+	// 		}
+	// 		// // agentRB.AddForce(moveVector * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+	// 		// //rotate the player forward
+	// 		// if(dirToGo != Vector3.zero)
+	// 		// {
+	// 		// 	// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(agentRB.position + dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+	// 		// 	// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(Vector3.up + dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+	// 		// 	agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+	// 		// 	// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(agentRB.position + dirToGo - agentRB.position), Time.deltaTime * academy.agentRotationSpeed));
+	// 		// 	// agentRB.rotation = Quaternion.Slerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
+	// 		// }
+
+	// 		reward -= Mathf.Abs(act[3]);
+	// 		agentRB.AddTorque(transform.up * Mathf.Clamp(act[3], -1, 1) * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
+
+    //     }
+    // }
+
 	public override void AgentStep(float[] act)
 	{
+		// if(agentRB.position.y > academy.recordHeight)
+		// {
+		// 	StartCoroutine(academy.NewRecord(agentRB.position.y));
+		// 	// reward += agentRB.position.y/6 - .25f;
+		// }
+		// if(academy.newRecord)
+		// {
+		// 	reward += 1;
 
-		reward += agentRB.velocity.x/100;
+		// }
+
+		reward += agentRB.position.y/10f;
+		// reward += agentRB.position.y/10 - .25f;
+		// reward += agentRB.velocity.x/100;
 		// if(agentRB.position.x > furthestXPos)
 		// {
 		// 	furthestXPos = agentRB.position.x;
@@ -497,26 +622,27 @@ public class ObstacleCourseAgent : Agent
 		// }
 
 
-		if(jumping)
-		{
-			// jumpTargetPos = transform.forward
-			jumpTargetPos = new Vector3(agentRB.position.x,  jumpStartingPos.y + jumpHeight, agentRB.position.z) + transform.forward/2; 
+		// if(jumping)
+		// {
+		// 	// jumpTargetPos = transform.forward
+		// 	jumpTargetPos = new Vector3(agentRB.position.x,  jumpStartingPos.y + jumpHeight, agentRB.position.z) + transform.forward/2; 
 
-			MoveTowards(jumpTargetPos, agentRB, jumpVelocity, jumpVelocityMaxChange);
-			// agentRB.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
-			// agentRB.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);
-		}
+		// 	MoveTowards(jumpTargetPos, agentRB, jumpVelocity, jumpVelocityMaxChange);
+		// 	// agentRB.AddForce(Vector3.up * jumpHeight, ForceMode.VelocityChange);
+		// 	// agentRB.AddForce(Vector3.up * jumpVelocity, ForceMode.VelocityChange);
+		// }
 
-		if(!jumping && !grounded) //add some downward force so it's not floaty
-		{
-			agentRB.AddForce(Vector3.down * fallingForce, ForceMode.Acceleration);
-		}
+		// if(!jumping && !grounded) //add some downward force so it's not floaty
+		// {
+		// 	agentRB.AddForce(Vector3.down * fallingForce, ForceMode.Acceleration);
+		// }
 
-		if(agentRB.position.y < -2)
-		// if (!Physics.Raycast(agentRB.position, Vector3.down, 20)) //if the agent has gone over the edge, we done.
+		// if(agentRB.position.y < -2)
+		if (!Physics.Raycast(agentRB.position, Vector3.down, 20)) //if the agent has gone over the edge, we done.
 		{
 			fail = true; //fell off bro
 			reward -= 1f; // BAD AGENT
+			// reward -= 5f; // BAD AGENT
 			// transform.position =  GetRandomSpawnPos();
 			// furthestXPos = -1000;
 			done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
@@ -538,23 +664,28 @@ public class ObstacleCourseAgent : Agent
 
 
 
-	// detect when we touch the goal
-	void OnCollisionEnter(Collision col)
-	{
-		if(col.gameObject.CompareTag("avoidObstacle")) //touched goal
-		{
-			reward -= .1f; //you get a point
-			// print("collided with avoidObstacle");
-			// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-			// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
-		}
-		// if(col.gameObject.CompareTag("goal")) //touched goal
-		// {
-		// 	reward += 1; //you get a point
-		// 	done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-		// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
-		// }
-	}
+	// // detect when we touch the goal
+	// void OnCollisionEnter(Collision col)
+	// {
+	// 	// if(col.gameObject.CompareTag("avoidObstacle")) //touched goal
+	// 	// {
+	// 	// 	reward -= .1f; //you get a point
+	// 	// 	// print("collided with avoidObstacle");
+	// 	// 	// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 	// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	// }
+	// 	if(col.gameObject.CompareTag("agent")) //touched goal
+	// 	{
+	// 		// print("collided with agent");
+	// 		reward -= 1; //
+	// 	}
+	// 	// if(col.gameObject.CompareTag("goal")) //touched goal
+	// 	// {
+	// 	// 	reward += 1; //you get a point
+	// 	// 	done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 	// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	// }
+	// }
 	
 
 
@@ -570,7 +701,7 @@ public class ObstacleCourseAgent : Agent
 	//In the editor, if "Reset On Done" is checked then AgentReset() will be called automatically anytime we mark done = true in an agent script.
 	public override void AgentReset()
 	{
-		furthestXPos = -1000;
+		// furthestXPos = -1000;
 		agentRB.velocity = Vector3.zero;
 
 		// ResetBlock(shortBlockRB);
