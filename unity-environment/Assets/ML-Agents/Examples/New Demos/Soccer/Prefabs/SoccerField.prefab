@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1181697576942572
 GameObject:
   m_ObjectHideFlags: 1
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 65614081515322272}
   - component: {fileID: 23938646436467072}
   m_Layer: 0
-  m_Name: SoccerField
+  m_Name: Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,7 +408,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4396430647141440}
-  - component: {fileID: 114083027244644104}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -629,7 +628,7 @@ GameObject:
   - component: {fileID: 54754019220383138}
   m_Layer: 0
   m_Name: Soccer Ball
-  m_TagString: Untagged
+  m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -805,6 +804,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4008400093827458}
+  - component: {fileID: 114473810151113182}
   m_Layer: 0
   m_Name: SoccerField
   m_TagString: Untagged
@@ -1578,7 +1578,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689741446328040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2, y: -0.73356485, z: 0.634552}
+  m_LocalPosition: {x: -5.62, y: -0.73356485, z: 0.634552}
   m_LocalScale: {x: 7.9560685, y: 7.956068, z: 7.956068}
   m_Children: []
   m_Father: {fileID: 4008400093827458}
@@ -3521,7 +3521,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3551,7 +3551,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3566,7 +3566,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3611,7 +3611,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3626,7 +3626,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3641,7 +3641,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3656,7 +3656,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 15
   m_Drag: 0.1
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4014,8 +4014,10 @@ MonoBehaviour:
   maxStep: 1500
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
@@ -4025,9 +4027,11 @@ MonoBehaviour:
   team: 0
   agentRole: 2
   playerIndex: 0
-  area: {fileID: 114083027244644104}
+  area: {fileID: 114473810151113182}
   agentRB: {fileID: 0}
   myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
 --- !u!114 &114042916184023212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4049,12 +4053,80 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114083027244644104
+--- !u!114 &114272824836568218
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1478862168066982}
+  m_GameObject: {fileID: 1477167073088418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2688ef4a36349f9aa010020c32d198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  observations: []
+  maxStep: 1500
+  resetOnDone: 1
+  state: []
+  stackedStates: []
+  reward: 0
+  done: 0
+  maxStepReached: 0
+  value: 0
+  CumulativeReward: 0
+  stepCounter: 0
+  agentStoredAction: []
+  memory: []
+  id: 0
+  team: 1
+  agentRole: 0
+  playerIndex: 0
+  area: {fileID: 114473810151113182}
+  agentRB: {fileID: 0}
+  myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+--- !u!114 &114355690511006716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170052137851920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2688ef4a36349f9aa010020c32d198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
+  observations: []
+  maxStep: 1500
+  resetOnDone: 1
+  state: []
+  stackedStates: []
+  reward: 0
+  done: 0
+  maxStepReached: 0
+  value: 0
+  CumulativeReward: 0
+  stepCounter: 0
+  agentStoredAction: []
+  memory: []
+  id: 0
+  team: 1
+  agentRole: 2
+  playerIndex: 0
+  area: {fileID: 114473810151113182}
+  agentRB: {fileID: 0}
+  myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+--- !u!114 &114473810151113182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815895732584180}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efd705d0a5b1e405eb1869b7cbe47dda, type: 3}
@@ -4077,70 +4149,12 @@ MonoBehaviour:
   goalScoreAgainstTeamReward: -2
   goalTextUI: {fileID: 0}
   totalPlayers: 0
-  minWaitTimeToRespawnBall: 3
+  minWaitTimeToRespawnBall: 10
   canResetBall: 0
   useSpawnPoint: 0
   spawnPoint: {fileID: 4309602072842466}
---- !u!114 &114272824836568218
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477167073088418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2688ef4a36349f9aa010020c32d198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
-  observations: []
-  maxStep: 1500
-  resetOnDone: 1
-  state: []
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
-  team: 1
-  agentRole: 0
-  playerIndex: 0
-  area: {fileID: 114083027244644104}
-  agentRB: {fileID: 0}
-  myState: []
---- !u!114 &114355690511006716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1170052137851920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2688ef4a36349f9aa010020c32d198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
-  observations: []
-  maxStep: 1500
-  resetOnDone: 1
-  state: []
-  reward: 0
-  done: 0
-  value: 0
-  CumulativeReward: 0
-  stepCounter: 0
-  agentStoredAction: []
-  memory: []
-  id: 0
-  team: 1
-  agentRole: 2
-  playerIndex: 0
-  area: {fileID: 114083027244644104}
-  agentRB: {fileID: 0}
-  myState: []
+  blueBallPosReward: 0
+  redBallPosReward: 0
 --- !u!114 &114511500633317972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4157,8 +4171,10 @@ MonoBehaviour:
   maxStep: 1500
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
@@ -4168,9 +4184,11 @@ MonoBehaviour:
   team: 0
   agentRole: 0
   playerIndex: 0
-  area: {fileID: 114083027244644104}
+  area: {fileID: 114473810151113182}
   agentRB: {fileID: 0}
   myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
 --- !u!114 &114539541003263014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4203,8 +4221,10 @@ MonoBehaviour:
   maxStep: 1500
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
@@ -4214,9 +4234,11 @@ MonoBehaviour:
   team: 0
   agentRole: 0
   playerIndex: 0
-  area: {fileID: 114083027244644104}
+  area: {fileID: 114473810151113182}
   agentRB: {fileID: 0}
   myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
 --- !u!114 &114603987610111894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4228,7 +4250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93558b952b37a4b0ebaca3ca6711bcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 114083027244644104}
+  area: {fileID: 0}
   lastTouchedBy: {fileID: 0}
   agentTag: agent
   redGoalTag: redGoal
@@ -4249,8 +4271,10 @@ MonoBehaviour:
   maxStep: 1500
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
@@ -4260,9 +4284,11 @@ MonoBehaviour:
   team: 0
   agentRole: 1
   playerIndex: 0
-  area: {fileID: 114083027244644104}
+  area: {fileID: 114473810151113182}
   agentRB: {fileID: 0}
   myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
 --- !u!114 &114662517401143580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4307,7 +4333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93558b952b37a4b0ebaca3ca6711bcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 114083027244644104}
+  area: {fileID: 0}
   lastTouchedBy: {fileID: 0}
   agentTag: agent
   redGoalTag: redGoal
@@ -4328,8 +4354,10 @@ MonoBehaviour:
   maxStep: 1500
   resetOnDone: 1
   state: []
+  stackedStates: []
   reward: 0
   done: 0
+  maxStepReached: 0
   value: 0
   CumulativeReward: 0
   stepCounter: 0
@@ -4339,9 +4367,11 @@ MonoBehaviour:
   team: 0
   agentRole: 1
   playerIndex: 0
-  area: {fileID: 114083027244644104}
+  area: {fileID: 114473810151113182}
   agentRB: {fileID: 0}
   myState: []
+  playerDirToTargetGoal: {x: 0, y: 0, z: 0}
+  playerDirToDefendGoal: {x: 0, y: 0, z: 0}
 --- !u!135 &135050833882795674
 SphereCollider:
   m_ObjectHideFlags: 1

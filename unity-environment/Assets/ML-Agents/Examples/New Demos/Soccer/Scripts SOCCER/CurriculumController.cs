@@ -336,7 +336,7 @@ public class CurriculumController : MonoBehaviour {
 	}
 	void SetActiveRedStrikers(bool active)
 	{
-		print("SetActiveRedStriker");
+		// print("SetActiveRedStriker");
 		foreach(SoccerFieldArea field in fields)
 		{
 			field.redStriker.gameObject.SetActive(active);
@@ -344,7 +344,7 @@ public class CurriculumController : MonoBehaviour {
 	}
 	void SetActiveBlueStrikers(bool active)
 	{
-		print("SetActiveBlueStriker");
+		// print("SetActiveBlueStriker");
 		foreach(SoccerFieldArea field in fields)
 		{
 			field.blueStriker.gameObject.SetActive(active);

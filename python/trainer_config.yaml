@@ -27,6 +27,41 @@ BrainPyramid:
     buffer_size: 4096
     summary_freq: 500
 
+BrainSoccerGoalies:
+    time_horizon: 64
+    # hidden_units: 64
+    batch_size: 2048
+    buffer_size: 4096
+    summary_freq: 500
+    # epsilon: 0.1
+
+
+BrainSoccerStrikers:
+    time_horizon: 64
+    # hidden_units: 64
+    batch_size: 2048
+    buffer_size: 4096
+    summary_freq: 500
+    # epsilon: 0.1
+
+# BrainSoccerGoalies:
+#     sequence_length: 16
+#     # batch_size: 2048
+#     # buffer_size: 4096
+#     batch_size: 16
+#     buffer_size: 64
+#     # num_layers: 2
+#     use_recurrent: true
+
+
+# BrainSoccerStrikers:
+#     sequence_length: 16
+#     # batch_size: 2048
+#     # buffer_size: 4096
+#     batch_size: 16
+#     buffer_size: 64
+#     # num_layers: 2
+#     use_recurrent: true
 
 # BrainPyramid:
 #     sequence_length: 16

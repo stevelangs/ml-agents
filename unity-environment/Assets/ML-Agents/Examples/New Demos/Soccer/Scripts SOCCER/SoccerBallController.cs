@@ -29,6 +29,7 @@ public class SoccerBallController : MonoBehaviour {
 				// area.AllPlayersDone(0);
 				// area.AllPlayersDone(-.1f);
 				area.AllPlayersDone(-.5f);
+				// area.AllPlayersDone(-2f);
 				area.ResetBall();
 			}
 		// reward = -1f; //lets see some hustle out there

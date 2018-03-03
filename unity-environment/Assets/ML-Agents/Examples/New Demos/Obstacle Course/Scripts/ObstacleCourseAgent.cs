@@ -206,6 +206,9 @@ public class ObstacleCourseAgent : Agent
 		// [3] hit distance
 		var noHitIndex = detectableObjects.Length; //if we didn't hit anything this will be 1
 		var hitDistIndex = detectableObjects.Length + 1; //if we hit something the distance will be stored here.
+		// var hitNormalX = detectableObjects.Length + 2; //if we hit something the distance will be stored here.
+		// var hitNormalY = detectableObjects.Length + 3; //if we hit something the distance will be stored here.
+		// var hitNormalZ = detectableObjects.Length + 4; //if we hit something the distance will be stored here.
 
 		// string[] detectableObjects  = { "banana", "agent", "wall", "badBanana", "frozenAgent" };
 
@@ -220,6 +223,9 @@ public class ObstacleCourseAgent : Agent
 					subList[i] = 1;  //tag hit
 					// print("raycast hit: " + detectableObjects[i]);
 					subList[hitDistIndex] = hit.distance / academy.agentRaycastDistance; //hit distance is stored in second to last pos
+					// subList[hitNormalX] = hit.normal.x;
+					// subList[hitNormalY] = hit.normal.y;
+					// subList[hitNormalZ] = hit.normal.z;
 					break;
 				}
 			}
