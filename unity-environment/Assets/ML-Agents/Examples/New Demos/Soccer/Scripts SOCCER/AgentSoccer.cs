@@ -462,30 +462,30 @@ public class AgentSoccer : Agent
     }
 
 
-	// detect when we touch the goal
-	void OnCollisionEnter(Collision col)
-	{
-		// if(col.gameObject.CompareTag("wall")) //touched goal
-		// {
-		// 	reward -= .1f; //]
-		// 	// print("collided with avoidObstacle");
-		// 	// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-		// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
-		// }
-		if(col.gameObject.CompareTag("agent")) //touched goal
-		{
-			reward -= .1f; //]
-			// print("collided with avoidObstacle");
-			// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-			// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
-		}
-		// if(col.gameObject.CompareTag("goal")) //touched goal
-		// {
-		// 	reward += 1; //you get a point
-		// 	done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-		// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
-		// }
-	}
+	// // detect when we touch the goal
+	// void OnCollisionEnter(Collision col)
+	// {
+	// 	// if(col.gameObject.CompareTag("wall")) //touched goal
+	// 	// {
+	// 	// 	reward -= .1f; //]
+	// 	// 	// print("collided with avoidObstacle");
+	// 	// 	// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 	// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	// }
+	// 	if(col.gameObject.CompareTag("agent")) //touched goal
+	// 	{
+	// 		reward -= .1f; //]
+	// 		// print("collided with avoidObstacle");
+	// 		// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 		// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	}
+	// 	// if(col.gameObject.CompareTag("goal")) //touched goal
+	// 	// {
+	// 	// 	reward += 1; //you get a point
+	// 	// 	done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 	// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	// }
+	// }
 	
 
 	public override void AgentStep(float[] act)
@@ -540,7 +540,10 @@ public class AgentSoccer : Agent
 	{
 		transform.position =  area.GetRandomSpawnPos();
 		agentRB.velocity = Vector3.zero; //we want the agent's vel to return to zero on reset
-		ChooseRandomTeam();
+		if(academy.randomizePlayersTeamForTraining)
+		{
+			ChooseRandomTeam();
+		}
 	}
 
 

@@ -33,7 +33,7 @@ BrainSoccerGoalies:
     batch_size: 2048
     buffer_size: 4096
     summary_freq: 500
-    # epsilon: 0.1
+    epsilon: 0.4
 
 
 BrainSoccerStrikers:
@@ -42,7 +42,7 @@ BrainSoccerStrikers:
     batch_size: 2048
     buffer_size: 4096
     summary_freq: 500
-    # epsilon: 0.1
+    epsilon: 0.4
 
 # BrainSoccerGoalies:
 #     sequence_length: 16

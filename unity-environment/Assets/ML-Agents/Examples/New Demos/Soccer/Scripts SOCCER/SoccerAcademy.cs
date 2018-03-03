@@ -39,7 +39,7 @@ public class SoccerAcademy : Academy {
     void Start()
     {
         Physics.gravity *= gravityMultiplier; //for soccer a multiplier of 3 looks good
-	    readRewardData = FindObjectOfType<ReadRewardData>(); //get reward data script
+	    // readRewardData = FindObjectOfType<ReadRewardData>(); //get reward data script
 
     }
 
@@ -54,6 +54,14 @@ public class SoccerAcademy : Academy {
 
 	public override void AcademyStep()
 	{
+        // if(currentLesson == 0)
+        // {
+        //     //load lesson 1
+        // }
+        // if(currentLesson == 1)
+        // {
+        //     //load lesson 2
+        // }
 
 	}
 
