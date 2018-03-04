@@ -33,6 +33,7 @@ public class SoccerAcademy : Academy {
     public float goaliePunish; //if opponents score, goalie gets this neg reward (-1)
     public float goalieReward; //if team scores, goalie gets this reward (currently 0...no reward. can play with this later)
 	ReadRewardData readRewardData;
+    public float coolDownTime;
 
     public int currentLesson;
 

@@ -17,6 +17,11 @@ TagManager:
   - seed
   - avoidObstacle
   - pyramid
+  - redGoal
+  - blueGoal
+  - ball
+  - redAgent
+  - blueAgent
   layers:
   - Default
   - TransparentFX

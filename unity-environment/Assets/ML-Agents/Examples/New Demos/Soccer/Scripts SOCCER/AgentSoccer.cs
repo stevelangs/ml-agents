@@ -31,7 +31,11 @@ public class AgentSoccer : Agent
 	Renderer renderer;
 	public Vector3 playerDirToTargetGoal;
 	public Vector3 playerDirToDefendGoal;
-    string[] detectableObjects  = {"ball", "wall", "agent"};
+
+	public float agentEnergy = 100;
+	public bool tired = false;
+    string[] detectableObjects  = {"ball", "wall", "redAgent", "blueAgent"};
+    // string[] detectableObjects  = {"ball", "wall", "agent"};
 
 	public void ChooseRandomTeam()
 	{
@@ -366,6 +370,21 @@ public class AgentSoccer : Agent
 					subList[hitNormalX] = hit.normal.x;
 					subList[hitNormalY] = hit.normal.y;
 					subList[hitNormalZ] = hit.normal.z;
+
+					if(team == Team.red && hit.collider.gameObject.CompareTag("redAgent"))
+					{
+						if(hit.distance < 5)
+						{
+							reward -= .001f;
+						}
+					}
+					if(team == Team.blue && hit.collider.gameObject.CompareTag("blueAgent"))
+					{
+						if(hit.distance < 5)
+						{
+							reward -= .001f;
+						}
+					}
 					
 					break;
 				}
@@ -422,6 +441,19 @@ public class AgentSoccer : Agent
 				// print("act[1] = " + act[1]);
 				reward -= energyConservationPentalty;
 			}
+			// if(act[0] != 0)
+			// {
+			// 	float exhaustionPenalty = Mathf.Abs(act[0])/10000;
+			// 	// print("act[0] = " + act[0]);
+			// 	// reward -= energyConservationPentalty;
+			// 	// reward -= .0001f;
+			// }
+			// if(act[1] != 0)
+			// {
+			// 	float energyConservationPentalty = Mathf.Abs(act[1])/10000;
+			// 	// print("act[1] = " + act[1]);
+			// 	// reward -= energyConservationPentalty;
+			// }
 
 
 			// if(act[2] != 0)
@@ -500,11 +532,21 @@ public class AgentSoccer : Agent
 	// 	// }
 	// }
 	
+	void ResetEnergy()
+	{
+		agentEnergy = 100;
+	}
+	IEnumerator CoolDownTimer()
+	{
+		tired = true;
+		yield return new WaitForSeconds(academy.coolDownTime);
+		tired = false;
+	}
 
 	public override void AgentStep(float[] act)
 	{
 		// print(readRewardData.currentMeanReward);
-		// reward += .0001f; //mainly for goalies. not sure how this will affect offense. idea is to stay alive longer
+		// reward += .0001f; //mainly for goalies. not sure hssow this will affect offense. idea is to stay alive longer
 		// reward -= .0001f; //hurry up
 		// float 
 		// if(agentRole == AgentRole.goalie)
