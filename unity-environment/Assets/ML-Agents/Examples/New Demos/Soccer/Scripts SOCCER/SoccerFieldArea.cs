@@ -386,121 +386,121 @@ public class SoccerFieldArea : MonoBehaviour {
 
 
 
-    public void CollectPlayerState(PlayerState ps)
-    {
+    // public void CollectPlayerState(PlayerState ps)
+    // {
 
-        ps.agentScript.playerDirToTargetGoal = Vector3.zero; //set the target goal based on which team this player is currently on
-         ps.agentScript.playerDirToDefendGoal = Vector3.zero;//set the defend goal based on which team this player is currently on
-        // Vector3 playerDirToTargetGoal = Vector3.zero; //set the target goal based on which team this player is currently on
-        // var playerTeam = ps.tea
-        // if(ps.currentTeamFloat == 0)//I'm on the red team
-        blueBallPosReward = (15 - (ballRB.position - redGoal.position).magnitude)/15;
-        redBallPosReward = (15 - (ballRB.position - blueGoal.position).magnitude)/15;
-        // print ("blueBallPosReward: " + blueBallPosReward);
-        // print ("redBallPosReward: " + redBallPosReward);
-        // float ballDistFromRedGoal = (ballRB.position - ground.transform.position).magnitude;
-        // float ballDistFromBlueGoal = (redGoal.position - ground.transform.position).magnitude;
-        Vector3 ballDirToTargetGoal = Vector3.zero;
-        Vector3 ballDirToDefendGoal = Vector3.zero;
-        if(ps.agentScript.team == AgentSoccer.Team.red)//I'm on the red team
-        {
-            ps.agentScript.playerDirToTargetGoal = blueGoal.position - ps.agentRB.position;
-            ps.agentScript.playerDirToDefendGoal = redGoal.position - ps.agentRB.position;
-            ballDirToTargetGoal = blueGoal.position - ballRB.position;
-            ballDirToDefendGoal =  redGoal.position - ballRB.position;
-            ps.ballPosReward = redBallPosReward;
+    //     ps.agentScript.playerDirToTargetGoal = Vector3.zero; //set the target goal based on which team this player is currently on
+    //      ps.agentScript.playerDirToDefendGoal = Vector3.zero;//set the defend goal based on which team this player is currently on
+    //     // Vector3 playerDirToTargetGoal = Vector3.zero; //set the target goal based on which team this player is currently on
+    //     // var playerTeam = ps.tea
+    //     // if(ps.currentTeamFloat == 0)//I'm on the red team
+    //     blueBallPosReward = (15 - (ballRB.position - redGoal.position).magnitude)/15;
+    //     redBallPosReward = (15 - (ballRB.position - blueGoal.position).magnitude)/15;
+    //     // print ("blueBallPosReward: " + blueBallPosReward);
+    //     // print ("redBallPosReward: " + redBallPosReward);
+    //     // float ballDistFromRedGoal = (ballRB.position - ground.transform.position).magnitude;
+    //     // float ballDistFromBlueGoal = (redGoal.position - ground.transform.position).magnitude;
+    //     Vector3 ballDirToTargetGoal = Vector3.zero;
+    //     Vector3 ballDirToDefendGoal = Vector3.zero;
+    //     if(ps.agentScript.team == AgentSoccer.Team.red)//I'm on the red team
+    //     {
+    //         ps.agentScript.playerDirToTargetGoal = blueGoal.position - ps.agentRB.position;
+    //         ps.agentScript.playerDirToDefendGoal = redGoal.position - ps.agentRB.position;
+    //         ballDirToTargetGoal = blueGoal.position - ballRB.position;
+    //         ballDirToDefendGoal =  redGoal.position - ballRB.position;
+    //         ps.ballPosReward = redBallPosReward;
 
 
-        }
-        if(ps.agentScript.team == AgentSoccer.Team.blue)//I'm on the blue team
-        {
-            ps.agentScript.playerDirToTargetGoal = redGoal.position - ps.agentRB.position;
-            ps.agentScript.playerDirToDefendGoal = blueGoal.position - ps.agentRB.position;
-            ballDirToTargetGoal = redGoal.position - ballRB.position;
-            ballDirToDefendGoal =  blueGoal.position - ballRB.position;
-            ps.ballPosReward = blueBallPosReward;
-        }
+    //     }
+    //     if(ps.agentScript.team == AgentSoccer.Team.blue)//I'm on the blue team
+    //     {
+    //         ps.agentScript.playerDirToTargetGoal = redGoal.position - ps.agentRB.position;
+    //         ps.agentScript.playerDirToDefendGoal = blueGoal.position - ps.agentRB.position;
+    //         ballDirToTargetGoal = redGoal.position - ballRB.position;
+    //         ballDirToDefendGoal =  blueGoal.position - ballRB.position;
+    //         ps.ballPosReward = blueBallPosReward;
+    //     }
 
-        // // Vector3 playerDirToDefendGoal = Vector3.zero;//set the defend goal based on which team this player is currently on
-        // if(ps.agentScript.team == AgentSoccer.Team.red)//I'm on the red team
-        // {
-        // }
-        // if(ps.agentScript.team == AgentSoccer.Team.blue)//I'm on the blue team
-        // {
-        // }
-        // Vector3 playerDirToDefendGoal = ps.defendGoal.transform.position - ps.agentRB.position;
-        Vector3 playerPos = ps.agentRB.position - ground.transform.position;
-        Vector3 ballPos = ballRB.position - ground.transform.position;
-        Vector3 playerDirToBall = ballRB.position - ps.agentRB.position;
-        // Vector3 playerDirToRedGoal = redGoal.transform.position - ps.agentRB.position;
-        // Vector3 playerDirToBlueGoal = blueGoal.transform.position - ps.agentRB.position;
-        // Vector3 playerPos = ps.agentRB.position - ground.transform.position;
-        // Vector3 playerDirToBall = ballRB.position - ps.agentRB.position;
+    //     // // Vector3 playerDirToDefendGoal = Vector3.zero;//set the defend goal based on which team this player is currently on
+    //     // if(ps.agentScript.team == AgentSoccer.Team.red)//I'm on the red team
+    //     // {
+    //     // }
+    //     // if(ps.agentScript.team == AgentSoccer.Team.blue)//I'm on the blue team
+    //     // {
+    //     // }
+    //     // Vector3 playerDirToDefendGoal = ps.defendGoal.transform.position - ps.agentRB.position;
+    //     Vector3 playerPos = ps.agentRB.position - ground.transform.position;
+    //     Vector3 ballPos = ballRB.position - ground.transform.position;
+    //     Vector3 playerDirToBall = ballRB.position - ps.agentRB.position;
+    //     // Vector3 playerDirToRedGoal = redGoal.transform.position - ps.agentRB.position;
+    //     // Vector3 playerDirToBlueGoal = blueGoal.transform.position - ps.agentRB.position;
+    //     // Vector3 playerPos = ps.agentRB.position - ground.transform.position;
+    //     // Vector3 playerDirToBall = ballRB.position - ps.agentRB.position;
 
-        // float playerDistToBall = playerDirToBall.sqrMagnitude;
-        // ps.state.Add(playerDistToBall);
+    //     // float playerDistToBall = playerDirToBall.sqrMagnitude;
+    //     // ps.state.Add(playerDistToBall);
 
-        // Vector3 redGoalPosition = redGoal.transform.position - ground.transform.position;
-        // Vector3 blueGoalPosition = blueGoal.transform.position - ground.transform.position;
-        // Vector3 ballDirToRedGoal = redGoal.transform.position - ballRB.position;
-        // Vector3 ballDirToBlueGoal = blueGoal.transform.position - ballRB.position;
-        // Vector3 ballDirToTargetGoal = ps.targetGoal.transform.position - ballRB.position;
-        // Vector3 ballDirToDefendGoal =  ps.defendGoal.transform.position - ballRB.position;
+    //     // Vector3 redGoalPosition = redGoal.transform.position - ground.transform.position;
+    //     // Vector3 blueGoalPosition = blueGoal.transform.position - ground.transform.position;
+    //     // Vector3 ballDirToRedGoal = redGoal.transform.position - ballRB.position;
+    //     // Vector3 ballDirToBlueGoal = blueGoal.transform.position - ballRB.position;
+    //     // Vector3 ballDirToTargetGoal = ps.targetGoal.transform.position - ballRB.position;
+    //     // Vector3 ballDirToDefendGoal =  ps.defendGoal.transform.position - ballRB.position;
 
-        ps.state.Clear(); //instead of creating a new list each tick we will reuse this one
-        // ps.state.Add(ps.playerID); //whoami 
-        // ps.state.Add(ps.currentTeamFloat); //which team 
-        // ps.state.Add(ps.agentRoleFloat);
-        //capture the agent's current role
-        float currentRole = ps.agentScript.agentRole == AgentSoccer.AgentRole.striker? 1: ps.agentScript.agentRole == AgentSoccer.AgentRole.defender? 2: ps.agentScript.agentRole == AgentSoccer.AgentRole.goalie? 3: 0;
+    //     ps.state.Clear(); //instead of creating a new list each tick we will reuse this one
+    //     // ps.state.Add(ps.playerID); //whoami 
+    //     // ps.state.Add(ps.currentTeamFloat); //which team 
+    //     // ps.state.Add(ps.agentRoleFloat);
+    //     //capture the agent's current role
+    //     float currentRole = ps.agentScript.agentRole == AgentSoccer.AgentRole.striker? 1: ps.agentScript.agentRole == AgentSoccer.AgentRole.defender? 2: ps.agentScript.agentRole == AgentSoccer.AgentRole.goalie? 3: 0;
         
-        //capture the agent's current team
-        float currentTeam = ps.agentScript.team == AgentSoccer.Team.red? 1: ps.agentScript.team == AgentSoccer.Team.blue? 2: 0;
-        // ps.state.Add(currentRole);
-        // ps.state.Add(currentTeam);
-        // ps.state.Add(ps.ballPosReward);
-        // MLAgentsHelpers.ConvertBoolToFloat
-        MLAgentsHelpers.CollectVector3State(ps.state, ps.agentRB.velocity); //agent's vel
-        //  MLAgentsHelpers.CollectRotationState(ps.state, ps.agentRB.transform); //agent's rotation
-         MLAgentsHelpers.CollectVector3State(ps.state, playerPos); //player abs position rel to field
-        // CollectVector3State(ps.state, ballPos); //dir from player to red goal
-         MLAgentsHelpers.CollectVector3State(ps.state, playerDirToBall); //dir from agent to ball
-        // CollectVector3State(ps.state, redGoalPosition);  //red goal abs position
-        // CollectVector3State(ps.state, blueGoalPosition); //blue goal abs position
-        MLAgentsHelpers.CollectVector3State(ps.state,  ps.agentScript.playerDirToTargetGoal); //dir from player to red goal
-        MLAgentsHelpers.CollectVector3State(ps.state,  ps.agentScript.playerDirToDefendGoal); //dir from player to blue goal
-        MLAgentsHelpers.CollectVector3State(ps.state, ballDirToTargetGoal); //dir from ball to target goal
-        MLAgentsHelpers.CollectVector3State(ps.state, ballDirToDefendGoal); //dir from ball to defend goal
+    //     //capture the agent's current team
+    //     float currentTeam = ps.agentScript.team == AgentSoccer.Team.red? 1: ps.agentScript.team == AgentSoccer.Team.blue? 2: 0;
+    //     // ps.state.Add(currentRole);
+    //     // ps.state.Add(currentTeam);
+    //     // ps.state.Add(ps.ballPosReward);
+    //     // MLAgentsHelpers.ConvertBoolToFloat
+    //     MLAgentsHelpers.CollectVector3State(ps.state, ps.agentRB.velocity); //agent's vel
+    //     //  MLAgentsHelpers.CollectRotationState(ps.state, ps.agentRB.transform); //agent's rotation
+    //      MLAgentsHelpers.CollectVector3State(ps.state, playerPos); //player abs position rel to field
+    //     // CollectVector3State(ps.state, ballPos); //dir from player to red goal
+    //      MLAgentsHelpers.CollectVector3State(ps.state, playerDirToBall); //dir from agent to ball
+    //     // CollectVector3State(ps.state, redGoalPosition);  //red goal abs position
+    //     // CollectVector3State(ps.state, blueGoalPosition); //blue goal abs position
+    //     MLAgentsHelpers.CollectVector3State(ps.state,  ps.agentScript.playerDirToTargetGoal); //dir from player to red goal
+    //     MLAgentsHelpers.CollectVector3State(ps.state,  ps.agentScript.playerDirToDefendGoal); //dir from player to blue goal
+    //     MLAgentsHelpers.CollectVector3State(ps.state, ballDirToTargetGoal); //dir from ball to target goal
+    //     MLAgentsHelpers.CollectVector3State(ps.state, ballDirToDefendGoal); //dir from ball to defend goal
 
 
-        // CollectVector3State(ps.state, ballDirToRedGoal); //dir from ball to target goal
-        // CollectVector3State(ps.state, ballDirToBlueGoal); //dir from ball to defend goal
-        // CollectVector3State(ps.state, playerDirToRedGoal); //dir from player to red goal
-        // CollectVector3State(ps.state, playerDirToBlueGoal); //dir from player to blue goal
-        // CollectVector3State(ps.state, ballDirToRedGoal); //dir from ball to target goal
-        // CollectVector3State(ps.state, ballDirToBlueGoal); //dir from ball to defend goal
+    //     // CollectVector3State(ps.state, ballDirToRedGoal); //dir from ball to target goal
+    //     // CollectVector3State(ps.state, ballDirToBlueGoal); //dir from ball to defend goal
+    //     // CollectVector3State(ps.state, playerDirToRedGoal); //dir from player to red goal
+    //     // CollectVector3State(ps.state, playerDirToBlueGoal); //dir from player to blue goal
+    //     // CollectVector3State(ps.state, ballDirToRedGoal); //dir from ball to target goal
+    //     // CollectVector3State(ps.state, ballDirToBlueGoal); //dir from ball to defend goal
 
 
-        // CollectVector3State(ps.state, ps.targetGoal.transform.position - ps.agentRB.position); //dir from player to target goal
-        // CollectVector3State(ps.state, ps.defendGoal.transform.position - ps.agentRB.position); //dir from player to defend goal
-        // CollectVector3State(ps.state, ps.targetGoal.transform.position - ballRB.position); //dir from ball to target goal
-        // CollectVector3State(ps.state, ps.defendGoal.transform.position - ballRB.position); //dir from ball to defend goal
-         MLAgentsHelpers.CollectVector3State(ps.state, ballRB.velocity);
+    //     // CollectVector3State(ps.state, ps.targetGoal.transform.position - ps.agentRB.position); //dir from player to target goal
+    //     // CollectVector3State(ps.state, ps.defendGoal.transform.position - ps.agentRB.position); //dir from player to defend goal
+    //     // CollectVector3State(ps.state, ps.targetGoal.transform.position - ballRB.position); //dir from ball to target goal
+    //     // CollectVector3State(ps.state, ps.defendGoal.transform.position - ballRB.position); //dir from ball to defend goal
+    //      MLAgentsHelpers.CollectVector3State(ps.state, ballRB.velocity);
 
 
 
         
-        // if(ps.teamFloat == 1) //blue team
-        // {
-        //     bluePlayers.Add(ps);
-        // }
-        // else if (ps.teamFloat == 0) //redteam
-        // {
-        //     redPlayers.Add(ps);
-        // }
+    //     // if(ps.teamFloat == 1) //blue team
+    //     // {
+    //     //     bluePlayers.Add(ps);
+    //     // }
+    //     // else if (ps.teamFloat == 0) //redteam
+    //     // {
+    //     //     redPlayers.Add(ps);
+    //     // }
 
 
-    }
+    // }
 
 
     // void FixedUpdate()

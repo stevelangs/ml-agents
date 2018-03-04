@@ -33,7 +33,7 @@ BrainSoccerGoalies:
     batch_size: 2048
     buffer_size: 4096
     summary_freq: 500
-    epsilon: 0.4
+    # epsilon: 0.4
 
 
 BrainSoccerStrikers:
@@ -42,44 +42,7 @@ BrainSoccerStrikers:
     batch_size: 2048
     buffer_size: 4096
     summary_freq: 500
-    epsilon: 0.4
-
-# BrainSoccerGoalies:
-#     sequence_length: 16
-#     # batch_size: 2048
-#     # buffer_size: 4096
-#     batch_size: 16
-#     buffer_size: 64
-#     # num_layers: 2
-#     use_recurrent: true
-
-
-# BrainSoccerStrikers:
-#     sequence_length: 16
-#     # batch_size: 2048
-#     # buffer_size: 4096
-#     batch_size: 16
-#     buffer_size: 64
-#     # num_layers: 2
-#     use_recurrent: true
-
-# BrainPyramid:
-#     sequence_length: 16
-#     batch_size: 2048
-#     buffer_size: 4096
-#     # num_layers: 2
-#     use_recurrent: true
-#     summary_freq: 500
-
-
-# BrainSwarm:
-#     sequence_length: 32
-#     batch_size: 16
-#     buffer_size: 64
-#     # num_layers: 2
-#     use_recurrent: true
-#     summary_freq: 500
-
+    # epsilon: 0.4
 
 BrainSwarm:
     batch_size: 2048
@@ -94,20 +57,6 @@ BrainWallJump:
     buffer_size: 128
     # num_layers: 2
     use_recurrent: true
-
-
-
-
-
-# BrainWallJump:
-#     max_steps: 5.0e5
-#     summary_freq: 500
-#     sequence_length: 16
-#     batch_size: 16
-#     buffer_size: 64
-#     num_layers: 2
-#     use_recurrent: true
-
 
 # BrainObstacleCourse:
 #     max_steps: 5.0e5

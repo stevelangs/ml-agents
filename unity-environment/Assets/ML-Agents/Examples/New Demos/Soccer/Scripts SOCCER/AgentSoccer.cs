@@ -440,10 +440,16 @@ public class AgentSoccer : Agent
 			
 			// Vector3 directionX = Vector3.right * act[0];  //go left or right in world space
             // Vector3 directionZ = Vector3.forward * act[1]; //go forward or back in world space
-			Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -1, 1);  //go left or right in world space
-			agentRB.AddForce(directionX * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-            Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -1, 1); //go forward or back in world space
-			agentRB.AddForce(directionZ * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+			// Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], Random.Range(-1, 0), Random.Range(0,1));  //go left or right in world space
+			Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -2, 2);  //go left or right in world space
+			agentRB.AddForce(directionX * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+			// agentRB.AddForce(directionX * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+			// Vector3 directionZ = Vector3.right * Mathf.Clamp(act[1], Random.Range(-1, 0), Random.Range(0,1));  //go left or right in world space
+            Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -2, 2); //go forward or back in world space
+			// agentRB.AddForce(directionZ * Random.Range(.3f, 1) * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+			agentRB.AddForce(directionZ * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+			// agentRB.AddForce(directionZ * Random.Range(0, 1) * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+        	// Vector3 dirToGo = (directionX * Random.Range(.3f, 1)) + (directionZ * Random.Range(.3f, 1)); //the dir we want to go
         	Vector3 dirToGo = directionX + directionZ; //the dir we want to go
 			// agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
 			if(dirToGo != Vector3.zero)
@@ -474,7 +480,14 @@ public class AgentSoccer : Agent
 	// 	// }
 	// 	if(col.gameObject.CompareTag("agent")) //touched goal
 	// 	{
-	// 		reward -= .1f; //]
+	// 		reward -= .0001f; //]
+	// 		// print("collided with avoidObstacle");
+	// 		// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 		// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	}
+	// 	if(col.gameObject.CompareTag("ball")) //touched goal
+	// 	{
+	// 		reward += .05f; //]
 	// 		// print("collided with avoidObstacle");
 	// 		// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
 	// 		// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
