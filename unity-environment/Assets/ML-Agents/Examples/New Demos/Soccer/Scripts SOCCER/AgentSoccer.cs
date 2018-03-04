@@ -309,6 +309,7 @@ public class AgentSoccer : Agent
 		RaycastAndAddState(agentRB.transform.position, transform.forward - transform.right); //left forward
 		RaycastAndAddState(agentRB.transform.position, -transform.right); //left
 
+		state.Add(agentEnergy/100);
 		return state;
 	}
 
@@ -428,22 +429,53 @@ public class AgentSoccer : Agent
         if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
 
-			if(act[0] != 0)
-			{
-				float energyConservationPentalty = Mathf.Abs(act[0])/10000;
-				// print("act[0] = " + act[0]);
-				reward -= energyConservationPentalty;
-				// reward -= .0001f;
-			}
-			if(act[1] != 0)
-			{
-				float energyConservationPentalty = Mathf.Abs(act[1])/10000;
-				// print("act[1] = " + act[1]);
-				reward -= energyConservationPentalty;
-			}
 			// if(act[0] != 0)
 			// {
-			// 	float exhaustionPenalty = Mathf.Abs(act[0])/10000;
+			// 	float energyConservationPentalty = Mathf.Abs(act[0])/10000;
+			// 	// print("act[0] = " + act[0]);
+			// 	reward -= energyConservationPentalty;
+			// 	// reward -= .0001f;
+			// }
+			// if(act[1] != 0)
+			// {
+			// 	float energyConservationPentalty = Mathf.Abs(act[1])/10000;
+			// 	// print("act[1] = " + act[1]);
+			// 	reward -= energyConservationPentalty;
+			// }
+			// if(act[0] != 0)
+			// {
+			if(!tired && agentEnergy > 0)
+			{
+				agentEnergy -= Mathf.Abs(act[0])/10;
+				agentEnergy -= Mathf.Abs(act[1])/10;
+				// agentEnergy -= Mathf.Abs(act[1])/100;
+
+
+				Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -1, 1);  //go left or right in world space
+				agentRB.AddForce(directionX * (academy.agentRunSpeed * (agentEnergy/100) * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+				// agentRB.AddForce(directionX * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+				// Vector3 directionZ = Vector3.right * Mathf.Clamp(act[1], Random.Range(-1, 0), Random.Range(0,1));  //go left or right in world space
+				Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -1, 1); //go forward or back in world space
+				// agentRB.AddForce(directionZ * Random.Range(.3f, 1) * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+				agentRB.AddForce(directionZ * (academy.agentRunSpeed * (agentEnergy/100) * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+				// agentRB.AddForce(directionZ * Random.Range(0, 1) * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+				// Vector3 dirToGo = (directionX * Random.Range(.3f, 1)) + (directionZ * Random.Range(.3f, 1)); //the dir we want to go
+				Vector3 dirToGo = directionX + directionZ; //the dir we want to go
+				// agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+				if(dirToGo != Vector3.zero)
+				{
+					agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+
+					// agentRB.rotation = Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
+					// agentRB.rotation = Quaternion.LookRotation(dirToGo);
+				}
+			}
+			else
+			{
+				StartCoroutine(NeedToRest());
+			}
+
+
 			// 	// print("act[0] = " + act[0]);
 			// 	// reward -= energyConservationPentalty;
 			// 	// reward -= .0001f;
@@ -473,24 +505,6 @@ public class AgentSoccer : Agent
 			// Vector3 directionX = Vector3.right * act[0];  //go left or right in world space
             // Vector3 directionZ = Vector3.forward * act[1]; //go forward or back in world space
 			// Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], Random.Range(-1, 0), Random.Range(0,1));  //go left or right in world space
-			Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -2, 2);  //go left or right in world space
-			agentRB.AddForce(directionX * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
-			// agentRB.AddForce(directionX * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-			// Vector3 directionZ = Vector3.right * Mathf.Clamp(act[1], Random.Range(-1, 0), Random.Range(0,1));  //go left or right in world space
-            Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -2, 2); //go forward or back in world space
-			// agentRB.AddForce(directionZ * Random.Range(.3f, 1) * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-			agentRB.AddForce(directionZ * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
-			// agentRB.AddForce(directionZ * Random.Range(0, 1) * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
-        	// Vector3 dirToGo = (directionX * Random.Range(.3f, 1)) + (directionZ * Random.Range(.3f, 1)); //the dir we want to go
-        	Vector3 dirToGo = directionX + directionZ; //the dir we want to go
-			// agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-			if(dirToGo != Vector3.zero)
-			{
-				agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed));
-
-				// agentRB.rotation = Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
-				// agentRB.rotation = Quaternion.LookRotation(dirToGo);
-			}
 
 			// agentRB.transform.LookAt(dirToGo);
 
@@ -532,15 +546,12 @@ public class AgentSoccer : Agent
 	// 	// }
 	// }
 	
-	void ResetEnergy()
-	{
-		agentEnergy = 100;
-	}
-	IEnumerator CoolDownTimer()
+	IEnumerator NeedToRest()
 	{
 		tired = true;
 		yield return new WaitForSeconds(academy.coolDownTime);
 		tired = false;
+		agentEnergy = 100; //restore agent energy;
 	}
 
 	public override void AgentStep(float[] act)
