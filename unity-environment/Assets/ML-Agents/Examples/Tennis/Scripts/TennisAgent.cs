@@ -14,27 +14,26 @@ public class TennisAgent : Agent
     public GameObject myArea;
     public GameObject opponent;
 
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        state.Add(invertMult * (gameObject.transform.position.x - myArea.transform.position.x));
-        state.Add(gameObject.transform.position.y - myArea.transform.position.y);
-        state.Add(invertMult * gameObject.GetComponent<Rigidbody>().velocity.x);
-        state.Add(gameObject.GetComponent<Rigidbody>().velocity.y);
+        AddVectorObs(invertMult * (gameObject.transform.position.x - myArea.transform.position.x));
+        AddVectorObs(gameObject.transform.position.y - myArea.transform.position.y);
+        AddVectorObs(invertMult * gameObject.GetComponent<Rigidbody>().velocity.x);
+        AddVectorObs(gameObject.GetComponent<Rigidbody>().velocity.y);
 
-        state.Add(invertMult * (ball.transform.position.x - myArea.transform.position.x));
-        state.Add(ball.transform.position.y - myArea.transform.position.y);
-        state.Add(invertMult * ball.GetComponent<Rigidbody>().velocity.x);
-        state.Add(ball.GetComponent<Rigidbody>().velocity.y);
-        return state;
+        AddVectorObs(invertMult * (ball.transform.position.x - myArea.transform.position.x));
+        AddVectorObs(ball.transform.position.y - myArea.transform.position.y);
+        AddVectorObs(invertMult * ball.GetComponent<Rigidbody>().velocity.x);
+        AddVectorObs(ball.GetComponent<Rigidbody>().velocity.y);
     }
 
     // to be implemented by the developer
-    public override void AgentStep(float[] act)
+    public override void AgentAction(float[] vectorAction, string textAction)
     {
         float moveX = 0.0f;
         float moveY = 0.0f;
-        moveX = 0.25f * Mathf.Clamp(act[0], -1f, 1f) * invertMult;
-        if (Mathf.Clamp(act[1], -1f, 1f) > 0f && gameObject.transform.position.y - transform.parent.transform.position.y < -1.5f)
+        moveX = 0.25f * Mathf.Clamp(vectorAction[0], -1f, 1f) * invertMult;
+        if (Mathf.Clamp(vectorAction[1], -1f, 1f) > 0f && gameObject.transform.position.y - transform.parent.transform.position.y < -1.5f)
         {
             moveY = 0.5f;
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, moveY * 12f, 0f);

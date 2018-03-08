@@ -7,43 +7,40 @@ public class Ball3DHardAgent : Agent
     [Header("Specific to Ball3DHard")]
     public GameObject ball;
 
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        state.Add(gameObject.transform.rotation.z);
-        state.Add(gameObject.transform.rotation.x);
-        state.Add((ball.transform.position.x - gameObject.transform.position.x));
-        state.Add((ball.transform.position.y - gameObject.transform.position.y));
-        state.Add((ball.transform.position.z - gameObject.transform.position.z));
-        return state;
+        AddVectorObs(gameObject.transform.rotation.z);
+        AddVectorObs(gameObject.transform.rotation.x);
+        AddVectorObs((ball.transform.position - gameObject.transform.position));
     }
 
-    public override void AgentStep(float[] act)
+    public override void AgentAction(float[] vectorAction, string textAction)
     {
-        if (brain.brainParameters.actionSpaceType == StateType.continuous)
+        if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
         {
-            float action_z = 2f * Mathf.Clamp(act[0], -1f, 1f);
+            float action_z = 2f * Mathf.Clamp(vectorAction[0], -1f, 1f);
             if ((gameObject.transform.rotation.z < 0.25f && action_z > 0f) ||
                 (gameObject.transform.rotation.z > -0.25f && action_z < 0f))
             {
                 gameObject.transform.Rotate(new Vector3(0, 0, 1), action_z);
             }
-            float action_x = 2f * Mathf.Clamp(act[1], -1f, 1f);
+            float action_x = 2f * Mathf.Clamp(vectorAction[1], -1f, 1f);
             if ((gameObject.transform.rotation.x < 0.25f && action_x > 0f) ||
                 (gameObject.transform.rotation.x > -0.25f && action_x < 0f))
             {
                 gameObject.transform.Rotate(new Vector3(1, 0, 0), action_x);
             }
-            if (!done)
+            if (!IsDone())
             {
-                reward = 0.1f;
+                SetReward( 0.1f);
             }
         }
         if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
             Mathf.Abs(ball.transform.position.x - gameObject.transform.position.x) > 3f ||
             Mathf.Abs(ball.transform.position.z - gameObject.transform.position.z) > 3f)
         {
-            done = true;
-            reward = -1f;
+            Done();
+            SetReward(-1f);
         }
 
     }

@@ -12,23 +12,25 @@ using System.Text;
 public class GridAgent : Agent
 {
     [Header("Specific to GridWorld")]
-    public GridAcademy academy;
+    private GridAcademy academy;
+    public float timeBetweenDecisionsAtInference;
+    private float timeSinceDecision;
 
     public override void InitializeAgent()
     {
-
+        academy = FindObjectOfType(typeof(GridAcademy)) as GridAcademy;
     }
 
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        return state;
+
     }
 
     // to be implemented by the developer
-    public override void AgentStep(float[] act)
+    public override void AgentAction(float[] vectorAction, string textAction)
     {
-        reward = -0.01f;
-        int action = Mathf.FloorToInt(act[0]);
+        AddReward(-0.01f);
+        int action = Mathf.FloorToInt(vectorAction[0]);
 
         // 0 - Forward, 1 - Backward, 2 - Left, 3 - Right
         Vector3 targetPos = transform.position;
@@ -56,16 +58,18 @@ public class GridAgent : Agent
         if (blockTest.Where(col => col.gameObject.tag == "wall").ToArray().Length == 0)
         {
             transform.position = targetPos;
+
             if (blockTest.Where(col => col.gameObject.tag == "goal").ToArray().Length == 1)
             {
-                done = true;
-                reward = 1;
+                Done();
+                SetReward(1f);
             }
             if (blockTest.Where(col => col.gameObject.tag == "pit").ToArray().Length == 1)
             {
-                done = true;
-                reward = -1;
+                Done();
+                SetReward(-1f);
             }
+
         }
     }
 
@@ -73,5 +77,30 @@ public class GridAgent : Agent
     public override void AgentReset()
     {
         academy.AcademyReset();
+    }
+
+    public void FixedUpdate()
+    {
+        WaitTimeInference();
+    }
+
+    private void WaitTimeInference()
+    {
+        if (!academy.isInference)
+        {
+            RequestDecision();
+        }
+        else
+        {
+            if (timeSinceDecision >= timeBetweenDecisionsAtInference)
+            {
+                timeSinceDecision = 0f;
+                RequestDecision();
+            }
+            else
+            {
+                timeSinceDecision += Time.fixedDeltaTime;
+            }
+        }
     }
 }
