@@ -36,6 +36,14 @@ BrainSoccerGoalies:
     # epsilon: 0.4
 
 
+HumanoidBrain:
+    time_horizon: 64
+    # hidden_units: 64
+    batch_size: 2048
+    buffer_size: 4096
+    summary_freq: 500
+    # epsilon: 0.4
+
 BrainSoccerStrikers:
     time_horizon: 64
     # hidden_units: 64

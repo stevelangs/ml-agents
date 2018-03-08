@@ -19,6 +19,12 @@ public static class MLAgentsHelpers{
 		state.Add(t.rotation.eulerAngles.y/180.0f-1.0f);
 		state.Add(t.rotation.eulerAngles.z/180.0f-1.0f);
     }
+    public static void CollectLocalRotationState(List<float> state, Transform t)
+    {
+		state.Add(t.localRotation.eulerAngles.x/180.0f-1.0f);
+		state.Add(t.localRotation.eulerAngles.y/180.0f-1.0f);
+		state.Add(t.localRotation.eulerAngles.z/180.0f-1.0f);
+    }
 
     //we can only collect floats in CollecState so we need to convert bools to floats
     public static float ConvertBoolToFloat(bool b)

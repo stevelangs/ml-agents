@@ -22,6 +22,7 @@ TagManager:
   - ball
   - redAgent
   - blueAgent
+  - ground
   layers:
   - Default
   - TransparentFX

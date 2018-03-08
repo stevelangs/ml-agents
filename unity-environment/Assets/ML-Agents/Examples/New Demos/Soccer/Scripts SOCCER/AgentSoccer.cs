@@ -62,6 +62,7 @@ public class AgentSoccer : Agent
 
     void Awake()
     {
+		agentEnergy = 100; 
 		renderer = GetComponent<Renderer>();
 		academy = FindObjectOfType<SoccerAcademy>(); //get the academy
 		// readRewardData = FindObjectOfType<ReadRewardData>(); //get reward data script
@@ -83,7 +84,7 @@ public class AgentSoccer : Agent
 		// playerID = playerState.playerID;
 		playerState.agentRB = GetComponent<Rigidbody>(); //cache the RB
 		agentRB = GetComponent<Rigidbody>(); //cache the RB
-		agentRB.maxAngularVelocity = 500;
+		agentRB.maxAngularVelocity = 50;
 		playerState.startingPos = transform.position;
 		playerState.agentScript = this;
 		// playerState.targetGoal = area.blueGoal;
@@ -275,7 +276,7 @@ public class AgentSoccer : Agent
         // ps.state.Add(ps.ballPosReward);
         // MLAgentsHelpers.ConvertBoolToFloat
         MLAgentsHelpers.CollectVector3State(state, agentRB.velocity); //agent's vel
-        //  MLAgentsHelpers.CollectRotationState(ps.state, ps.agentRB.transform); //agent's rotation
+         MLAgentsHelpers.CollectRotationState(state, agentRB.transform); //agent's rotation
          MLAgentsHelpers.CollectVector3State(state, playerPos); //player abs position rel to field
         // CollectVector3State(ps.state, ballPos); //dir from player to red goal
          MLAgentsHelpers.CollectVector3State(state, playerDirToBall); //dir from agent to ball
@@ -341,7 +342,8 @@ public class AgentSoccer : Agent
 			// print("drawing debug rays");
 		}
 
-		float[] subList = new float[detectableObjects.Length + 5];
+		// float[] subList = new float[detectableObjects.Length + 5];
+		float[] subList = new float[detectableObjects.Length + 2];
 		//bit array looks like this
 		// [walkableSurface, avoidObstacle, nothing hit, distance] if true 1, else 0
 		// [0] walkableSurface
@@ -350,9 +352,9 @@ public class AgentSoccer : Agent
 		// [3] hit distance
 		var noHitIndex = detectableObjects.Length; //if we didn't hit anything this will be 1
 		var hitDistIndex = detectableObjects.Length + 1; //if we hit something the distance will be stored here.
-		var hitNormalX = detectableObjects.Length + 2; //if we hit something the distance will be stored here.
-		var hitNormalY = detectableObjects.Length + 3; //if we hit something the distance will be stored here.
-		var hitNormalZ = detectableObjects.Length + 4; //if we hit something the distance will be stored here.
+		// var hitNormalX = detectableObjects.Length + 2; //if we hit something the distance will be stored here.
+		// var hitNormalY = detectableObjects.Length + 3; //if we hit something the distance will be stored here.
+		// var hitNormalZ = detectableObjects.Length + 4; //if we hit something the distance will be stored here.
 
 		// string[] detectableObjects  = { "banana", "agent", "wall", "badBanana", "frozenAgent" };
 
@@ -368,24 +370,24 @@ public class AgentSoccer : Agent
 					// print("raycast hit: " + detectableObjects[i]);
 					subList[hitDistIndex] = hit.distance / 30; //hit distance is stored in second to last pos
 					
-					subList[hitNormalX] = hit.normal.x;
-					subList[hitNormalY] = hit.normal.y;
-					subList[hitNormalZ] = hit.normal.z;
+					// subList[hitNormalX] = hit.normal.x;
+					// subList[hitNormalY] = hit.normal.y;
+					// subList[hitNormalZ] = hit.normal.z;
 
-					if(team == Team.red && hit.collider.gameObject.CompareTag("redAgent"))
-					{
-						if(hit.distance < 5)
-						{
-							reward -= .001f;
-						}
-					}
-					if(team == Team.blue && hit.collider.gameObject.CompareTag("blueAgent"))
-					{
-						if(hit.distance < 5)
-						{
-							reward -= .001f;
-						}
-					}
+					// if(team == Team.red && hit.collider.gameObject.CompareTag("redAgent"))
+					// {
+					// 	if(hit.distance < 5)
+					// 	{
+					// 		reward -= .001f;
+					// 	}
+					// }
+					// if(team == Team.blue && hit.collider.gameObject.CompareTag("blueAgent"))
+					// {
+					// 	if(hit.distance < 5)
+					// 	{
+					// 		reward -= .001f;
+					// 	}
+					// }
 					
 					break;
 				}
@@ -429,6 +431,9 @@ public class AgentSoccer : Agent
         if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
 
+				reward -= Mathf.Abs(act[0])/10000; //conserve energy
+				reward -= Mathf.Abs(act[1])/10000; //conserve energy
+				reward -= Mathf.Abs(act[2])/10000; //conserve energy
 			// if(act[0] != 0)
 			// {
 			// 	float energyConservationPentalty = Mathf.Abs(act[0])/10000;
@@ -444,36 +449,79 @@ public class AgentSoccer : Agent
 			// }
 			// if(act[0] != 0)
 			// {
-			if(!tired && agentEnergy > 0)
+			// if(!tired && agentEnergy > 0)
+			// reward -= 1 - agentEnergy/100;
+			if(agentEnergy <= 100f)
 			{
-				agentEnergy -= Mathf.Abs(act[0])/10;
-				agentEnergy -= Mathf.Abs(act[1])/10;
+				if(act[0] < .25f && act[1]< .25f)
+				{
+					agentEnergy += 2f; //recharge
+				}
+				if(act[0] > .25f || act[1] > .25f)
+				{
+					agentEnergy -= Mathf.Abs(act[0]/4);
+					agentEnergy -= Mathf.Abs(act[1]/4);
+				}
+			}
+			else{
+				agentEnergy = 100;
+			}
+
+
+			if(agentEnergy <= 0)
+			{
+				// if(act[0] > .25f || act[1] > .25f)
+				// {
+				// 	agentEnergy -= Mathf.Abs(act[0]/4);
+				// 	agentEnergy -= Mathf.Abs(act[1]/4);
+				// }
+				agentEnergy = 100;
+				reward -= .1f;
+			// }
+			// else{
+			}
+
+
+			// if(agentEnergy > 0)
+			// {
+				// agentEnergy -= Mathf.Abs(act[0]/2);
+				// agentEnergy -= Mathf.Abs(act[1]/2);
+				// agentEnergy += .001f; //regen a little bit of energy each step
 				// agentEnergy -= Mathf.Abs(act[1])/100;
 
 
-				Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -1, 1);  //go left or right in world space
-				agentRB.AddForce(directionX * (academy.agentRunSpeed * (agentEnergy/100) * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+				Vector3 directionX = Vector3.right * Mathf.Clamp(act[0], -2, 2);  //go left or right in world space
+				// float speedX
+				// agentRB.AddForce(directionX * (agentEnergy/100) * Random.Range(1, 10), ForceMode.VelocityChange); //added random.range so not everyone moves the same
+				agentRB.AddForce(directionX * (agentEnergy/100) * academy.agentRunSpeed, ForceMode.VelocityChange); //added random.range so not everyone moves the same
+				// agentRB.AddForce(directionX * (academy.agentRunSpeed * (agentEnergy/100) * Random.Range(1, 5)), ForceMode.VelocityChange); //added random.range so not everyone moves the same
 				// agentRB.AddForce(directionX * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
 				// Vector3 directionZ = Vector3.right * Mathf.Clamp(act[1], Random.Range(-1, 0), Random.Range(0,1));  //go left or right in world space
-				Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -1, 1); //go forward or back in world space
+				Vector3 directionZ = Vector3.forward * Mathf.Clamp(act[1], -2, 2); //go forward or back in world space
 				// agentRB.AddForce(directionZ * Random.Range(.3f, 1) * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-				agentRB.AddForce(directionZ * (academy.agentRunSpeed * (agentEnergy/100) * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
+				// agentRB.AddForce(directionZ * (agentEnergy/100) * Random.Range(1, 10), ForceMode.VelocityChange); //GO
+				agentRB.AddForce(directionZ * (agentEnergy/100) * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
+				// agentRB.AddForce(directionZ * (academy.agentRunSpeed * (agentEnergy/100) * Random.Range(1, 5)), ForceMode.VelocityChange); //GO
 				// agentRB.AddForce(directionZ * Random.Range(0, 1) * (academy.agentRunSpeed * Random.Range(0, 2)), ForceMode.VelocityChange); //GO
 				// Vector3 dirToGo = (directionX * Random.Range(.3f, 1)) + (directionZ * Random.Range(.3f, 1)); //the dir we want to go
 				Vector3 dirToGo = directionX + directionZ; //the dir we want to go
 				// agentRB.AddForce(dirToGo * academy.agentRunSpeed, ForceMode.VelocityChange); //GO
-				if(dirToGo != Vector3.zero)
-				{
-					agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed));
+				// if(dirToGo != Vector3.zero)
+				// {
+					// agentRB.MoveRotation(Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo.normalized), Time.deltaTime * academy.agentRotationSpeed));
+					agentRB.AddTorque(transform.up * Mathf.Clamp(act[2], -1f, 1f) * academy.agentRotationSpeed, ForceMode.VelocityChange); //turn right or left
 
 					// agentRB.rotation = Quaternion.Lerp(agentRB.rotation, Quaternion.LookRotation(dirToGo), Time.deltaTime * academy.agentRotationSpeed);
 					// agentRB.rotation = Quaternion.LookRotation(dirToGo);
-				}
-			}
-			else
-			{
-				StartCoroutine(NeedToRest());
-			}
+				// }
+			// }
+			// else
+			// {
+			// 	// agentEnergy += 50;
+			// 	agentEnergy = 100;
+			// 	// reward -= .01f; //you ran of energy. don't do that
+			// 	// StartCoroutine(NeedToRest());
+			// }
 
 
 			// 	// print("act[0] = " + act[0]);
@@ -514,7 +562,7 @@ public class AgentSoccer : Agent
     }
 
 
-	// // detect when we touch the goal
+	// detect when we touch the goal
 	// void OnCollisionEnter(Collision col)
 	// {
 	// 	// if(col.gameObject.CompareTag("wall")) //touched goal
@@ -524,20 +572,21 @@ public class AgentSoccer : Agent
 	// 	// 	// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
 	// 	// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
 	// 	// }
-	// 	if(col.gameObject.CompareTag("agent")) //touched goal
+	// 	// if(col.gameObject.CompareTag("agent")) //touched goal
+	// 	if(col.gameObject.CompareTag("redAgent") || col.gameObject.CompareTag("blueAgent")) //try to stay away from others
 	// 	{
 	// 		reward -= .0001f; //]
 	// 		// print("collided with avoidObstacle");
 	// 		// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
 	// 		// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
 	// 	}
-	// 	if(col.gameObject.CompareTag("ball")) //touched goal
-	// 	{
-	// 		reward += .05f; //]
-	// 		// print("collided with avoidObstacle");
-	// 		// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-	// 		// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
-	// 	}
+	// 	// if(col.gameObject.CompareTag("ball")) //touched goal
+	// 	// {
+	// 	// 	reward += .05f; //]
+	// 	// 	// print("collided with avoidObstacle");
+	// 	// 	// done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+	// 	// 	// StartCoroutine(GoalScoredSwapGroundMaterial(academy.goalScoredMaterial, 2)); //swap ground material for a bit to indicate we scored.
+	// 	// }
 	// 	// if(col.gameObject.CompareTag("goal")) //touched goal
 	// 	// {
 	// 	// 	reward += 1; //you get a point
@@ -546,19 +595,19 @@ public class AgentSoccer : Agent
 	// 	// }
 	// }
 	
-	IEnumerator NeedToRest()
-	{
-		tired = true;
-		yield return new WaitForSeconds(academy.coolDownTime);
-		tired = false;
-		agentEnergy = 100; //restore agent energy;
-	}
+	// IEnumerator NeedToRest()
+	// {
+	// 	tired = true;
+	// 	yield return new WaitForSeconds(academy.coolDownTime);
+	// 	tired = false;
+	// 	agentEnergy = 100; //restore agent energy;
+	// }
 
 	public override void AgentStep(float[] act)
 	{
 		// print(readRewardData.currentMeanReward);
 		// reward += .0001f; //mainly for goalies. not sure hssow this will affect offense. idea is to stay alive longer
-		// reward -= .0001f; //hurry up
+		reward -= .001f; //hurry up
 		// float 
 		// if(agentRole == AgentRole.goalie)
 		// {
@@ -566,18 +615,18 @@ public class AgentSoccer : Agent
 		// }
 		// print()
         MoveAgent(act); //perform agent actions
-		if(agentRole == AgentRole.goalie)
-		{
-			if(playerDirToDefendGoal.sqrMagnitude < 4)
-			{
-				reward += .001f;  //COACH SAYS: good job
-			}
-			else
-			{
-				reward -= .001f; //COACH SAYS: stay by the goal idiot
-			}
-		}
-		float sqrMagnitudeFromAgentToBall = (area.ballRB.position - agentRB.position).sqrMagnitude;
+		// if(agentRole == AgentRole.goalie)
+		// {
+		// 	if(playerDirToDefendGoal.sqrMagnitude < 4)
+		// 	{
+		// 		reward += .001f;  //COACH SAYS: good job
+		// 	}
+		// 	else
+		// 	{
+		// 		reward -= .001f; //COACH SAYS: stay by the goal idiot
+		// 	}
+		// }
+		// float sqrMagnitudeFromAgentToBall = (area.ballRB.position - agentRB.position).sqrMagnitude;
 
 		// if(sqrMagnitudeFromAgentToBall < 4)
 		// {
@@ -587,13 +636,13 @@ public class AgentSoccer : Agent
 		// print()
 		// reward += area.playerStates[playerIndex].ballPosReward/100;
 
-		if (!Physics.Raycast(agentRB.position, Vector3.down, 20)) //if the block has gone over the edge, we done.
-		{
-			// fail = true; //fell off bro
-			reward -= 1f; // BAD AGENT
-			// ResetBlock(shortBlockRB); //reset block pos
-			done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
-		}
+		// if (!Physics.Raycast(agentRB.position, Vector3.down, 20)) //if the block has gone over the edge, we done.
+		// {
+		// 	// fail = true; //fell off bro
+		// 	reward -= 1f; // BAD AGENT
+		// 	// ResetBlock(shortBlockRB); //reset block pos
+		// 	done = true; //if we mark an agent as done it will be reset automatically. AgentReset() will be called.
+		// }
 		// print(brain.name);
 		// if(readRewardData.rewardDataDict.ContainsKey(brain.name) && readRewardData.rewardDataDict[brain.name].currentMeanReward > -.8)
 		// {
@@ -610,6 +659,7 @@ public class AgentSoccer : Agent
 		{
 			ChooseRandomTeam();
 		}
+		agentEnergy = 100;
 	}
 
 

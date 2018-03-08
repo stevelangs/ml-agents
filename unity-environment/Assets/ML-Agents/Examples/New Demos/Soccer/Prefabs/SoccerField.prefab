@@ -1183,7 +1183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815895732584180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 54, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4965006585149804}
@@ -4403,9 +4403,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573669010726322}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4418,9 +4418,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852622073977564}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4448,9 +4448,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566813855699336}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4463,9 +4463,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968421664293794}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4478,9 +4478,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477167073088418}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4493,9 +4493,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923256982827466}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4508,9 +4508,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624402079173064}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4553,9 +4553,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376949001886604}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4568,9 +4568,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170052137851920}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4583,9 +4583,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1412194102505806}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4598,9 +4598,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707915597087610}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 35
   m_Drag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5025,6 +5025,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114042916184023212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5081,6 +5083,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114272824836568218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5116,6 +5120,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114355690511006716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5151,6 +5157,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114473810151113182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5220,6 +5228,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114539541003263014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5271,6 +5281,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114603987610111894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5322,6 +5334,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114662517401143580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5390,6 +5404,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114769881407122406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5441,6 +5457,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114905896253864800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5476,6 +5494,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!114 &114926936731038158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5511,6 +5531,8 @@ MonoBehaviour:
   myState: []
   playerDirToTargetGoal: {x: 0, y: 0, z: 0}
   playerDirToDefendGoal: {x: 0, y: 0, z: 0}
+  agentEnergy: 100
+  tired: 0
 --- !u!135 &135050833882795674
 SphereCollider:
   m_ObjectHideFlags: 1
