@@ -11,7 +11,7 @@ public class DetectCollision : MonoBehaviour {
 	}
 	void OnCollisionEnter(Collision col)
 	{
-		if(col.transform.CompareTag("ground"))
+		if(col.transform.CompareTag("ground") && !agentScript.fell)
 		{
 			agentScript.fell = true;
 

@@ -12,24 +12,26 @@ EditorBuildSettings:
     path: Assets/ML-Agents/Examples/Tennis/Tennis.unity
     guid: 25c0c9e81e55c4e129e1a5c0ac254100
   - enabled: 0
-    path: Assets/ML-Agents/Examples/New Demos/PushBlock/Scenes [OPEN THE SCENE IN
-      THIS FOLDER]/PushBlockBasic.unity
-    guid: ae8cc75939e3e4d07a79c8c6a08b54f4
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/ML-Agents/Examples/New Demos/Soccer/Scenes/SoccerFieldTesting.unity
-    guid: 2e5173b3e4c57483890465239e981965
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/ML-Agents/Examples/New Demos/Wall Jump/Scenes/Wall Jump.unity
-    guid: 56024e8d040d344709949bc88128944d
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/ML-Agents/Examples/New Demos/Swarm/Scene/Swarm.unity
-    guid: 090ae3b5bba774bf09b454e81d913918
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/ML-Agents/Examples/New Demos/Obstacle Course/Scenes/Obstacle Course.unity
-    guid: c4430488b71fe44c1846a5a2957e1d6b
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/ML-Agents/Examples/New Demos/Pyramid of Doom/Scenes/Pyramid of Doom.unity
-    guid: 23bacb0c02ffb45589f8209a605e2000
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/ML-Agents/Examples/New Demos/Humanoid/Scenes/Humanoid.unity
     guid: 4fc4e1df8405b4019af2bab7b58f0004
+  - enabled: 0
+    path: Assets/ML-Agents/Examples/3DBall/3DScene.unity
+    guid: 6f62a2ccb3830437ea4e85a617e856b3
