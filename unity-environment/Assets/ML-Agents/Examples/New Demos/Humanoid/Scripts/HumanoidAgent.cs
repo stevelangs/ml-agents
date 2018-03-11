@@ -52,7 +52,7 @@ public class HumanoidAgent : Agent {
 				joint.slerpDrive = jd;
 			}
 			rb.maxAngularVelocity = 14;
-			rb.mass = 1;
+			// rb.mass = 1;
 			rb.drag = 1;
 			rb.angularDrag = 1;
 			// rb.maxAngularVelocity = 500;
@@ -91,17 +91,19 @@ public class HumanoidAgent : Agent {
 			// if(rb)
 			// MLAgentsHelpers.CollectVector3State(state, rb.transform.position);
 			// AddVectorObs(rb.transform.localPosition);
+
+			AddVectorObs(hips.transform.localPosition);
 			AddVectorObs(hips.position - rb.transform.position);
 			AddVectorObs(rb.velocity);
 			AddVectorObs(rb.angularVelocity);
-			AddVectorObs(rb.transform.localRotation);
+			// AddVectorObs(rb.transform.localRotation);
 			// MLAgentsHelpers.CollectVector3State(state, rb.transform.localPosition);
 			// MLAgentsHelpers.CollectVector3State(state, rb.velocity);
 			// MLAgentsHelpers.CollectVector3State(state, rb.angularVelocity);
 			// MLAgentsHelpers.CollectLocalRotationState(state, rb.transform);
 			// MLAgentsHelpers.CollectRotationState(state, rb.transform);
 		}
-			AddVectorObs(hips.rotation);
+			AddVectorObs(hips.transform.localRotation);
 			// MLAgentsHelpers.CollectVector3State(state, hips.transform.localPosition);
 			// MLAgentsHelpers.CollectVector3State(state, hips.velocity);
 			// MLAgentsHelpers.CollectVector3State(state, hips.angularVelocity);
@@ -111,6 +113,40 @@ public class HumanoidAgent : Agent {
 		// return state;
 
 	}
+
+    // public override void CollectObservations()
+    // // public override List<float> CollectState()
+    // {
+	// 		// MLAgentsHelpers.CollectVector3State(state, hips.transform.position);
+	// 		// MLAgentsHelpers.CollectVector3State(state, hips.velocity);
+	// 		// MLAgentsHelpers.CollectVector3State(state, hips.angularVelocity);
+	// 		// MLAgentsHelpers.CollectRotationState(state, hips.transform);
+	// 	// foreach(Rigidbody rb in allBodyParts)
+	// 	foreach(Rigidbody rb in moveableBodyParts)
+	// 	{
+	// 		// if(rb)
+	// 		// MLAgentsHelpers.CollectVector3State(state, rb.transform.position);
+	// 		// AddVectorObs(rb.transform.localPosition);
+	// 		AddVectorObs(hips.position - rb.transform.position);
+	// 		AddVectorObs(rb.velocity);
+	// 		AddVectorObs(rb.angularVelocity);
+	// 		AddVectorObs(rb.transform.localRotation);
+	// 		// MLAgentsHelpers.CollectVector3State(state, rb.transform.localPosition);
+	// 		// MLAgentsHelpers.CollectVector3State(state, rb.velocity);
+	// 		// MLAgentsHelpers.CollectVector3State(state, rb.angularVelocity);
+	// 		// MLAgentsHelpers.CollectLocalRotationState(state, rb.transform);
+	// 		// MLAgentsHelpers.CollectRotationState(state, rb.transform);
+	// 	}
+	// 		AddVectorObs(hips.rotation);
+	// 		// MLAgentsHelpers.CollectVector3State(state, hips.transform.localPosition);
+	// 		// MLAgentsHelpers.CollectVector3State(state, hips.velocity);
+	// 		// MLAgentsHelpers.CollectVector3State(state, hips.angularVelocity);
+	// 		// MLAgentsHelpers.CollectRotationState(state, hips.transform);
+
+
+	// 	// return state;
+
+	// }
 
 	void MoveAgent(float[] vectorAction)
 	{
